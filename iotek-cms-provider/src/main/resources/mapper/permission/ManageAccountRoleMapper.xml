@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iotekclass.cms.persist.permission.ManageAccountRoleMapper">
+
+	<cache />
+
+	<!-- 保存 -->
+	<insert id="save" parameterType="ManageAccountRole" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO ${tableName}
+			(account_id,role_id,create_time,create_user,update_time,update_user)
+		VALUES
+			(#{accountId},#{roleId},now(),#{createUser},now(),#{updateUser})	
+	</insert>
+	
+	
+	<!-- 删除 -->
+	<delete id="delete">
+  		DELETE FROM ${tableName}
+  		WHERE role_id = ${id}
+  	</delete>
+  	
+  	<!-- 通过id获取对象 -->
+	<select id="getById" resultType="ManageAccountRole" >
+		SELECT * FROM ${tableName}
+		WHERE id = #{id}
+  	</select>
+  	<!-- 获取指定角色并且用户正在使用的已使用数量 -->
+  	<select id="getByRoleId" resultType="Integer">
+  		SELECT COUNT(*) FROM ${tableName} A,tb_manage_account B
+  		WHERE A.account_id = B.id
+  		AND B.enabled = 1
+  		AND role_id = #{roleId}
+  	</select>
+  	
+  	<update id="update">
+  		UPDATE ${tableName}
+  		SET update_time = now()
+  		<if test="accountId > 0">
+  		,account_id = #{accountId}
+  		</if>
+  		<if test="roleId > 0">
+  		,role_id = #{roleId}
+  		</if>
+  		<if test="updateUser > 0">
+  		,update_user = #{updateUser}
+  		</if>
+  		WHERE account_id = #{accountId}
+  	</update>
+  	
+</mapper>

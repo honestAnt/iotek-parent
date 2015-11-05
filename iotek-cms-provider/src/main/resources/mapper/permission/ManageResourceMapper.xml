@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iotekclass.cms.persist.permission.ManageResourceMapper">
+
+	<cache />
+
+	<!-- 保存 -->
+	<insert id="save" parameterType="ManageResource" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO ${tableName}
+			(name,description,url,parent_id,sort_number,state,create_time,create_user,update_time,update_user)
+		VALUES
+			(#{name},#{description},#{url},#{parentId},#{sortNumber},#{state},now(),#{createUser},#{updateTime},#{updateUser})	
+	</insert>
+	
+	<!-- 更新 -->
+	<update id="update" parameterType="ManageResource">
+		UPDATE ${tableName}
+		SET update_time = now()
+		<if test="name != null and name != ''">
+		,name = #{name}
+		</if>
+		<if test="description != null and description != ''">
+		,description = #{description}
+		</if>
+		<if test="url != null">
+		,url = #{url}
+		</if>
+		<if test="parentId > 0 ">
+		,parent_id = #{parentId}
+		</if>
+		<if test="sortNumber > 0">
+		,sort_number = #{sortNumber}
+		</if>
+		<if test="state != -1">
+		,state = #{state}
+		</if>
+		<if test="updateUser > 0">
+		,update_user = #{updateUser}
+		</if>
+		WHERE id= #{id}
+	</update>
+	
+	<!-- 删除 -->
+	<delete id="delete">
+  		DELETE FROM ${tableName}
+  		WHERE id = ${id}
+  	</delete>
+  	
+  	<!-- 通过id获取对象 -->
+	<select id="getById" resultType="ManageResource" >
+		SELECT * FROM ${tableName}
+		WHERE id = #{id}
+  	</select>
+  	
+  	<!--通过角色id查找对应资源  -->
+  	<select id="getByRoleId" resultType="ManageResource">
+  		SELECT A.* FROM ${tableName} A,tb_manage_role_resource_rel B
+		WHERE A.id = B.resource_id
+		AND B.role_id = #{roleId}
+		AND A.state =1
+  	</select>
+  	
+  	<!--通过资源名称查找对应资源  -->
+  	<select id="getByName" resultType="ManageResource">
+  		SELECT * FROM ${tableName}
+		WHERE name = #{name}
+		limit 1
+  	</select>
+  	
+  	<!--通过资源名称路径查找对应资源  -->
+  	<select id="getByUrl" resultType="ManageResource">
+  		SELECT * FROM ${tableName}
+		WHERE url = #{url} or url like #{urlStr} 
+  	</select>
+  	
+  	<!--通过父资源查找所有可用的子资源  -->
+  	<select id="getByParentId" resultType="ManageResource">
+  		SELECT * FROM ${tableName}
+		WHERE parent_id = #{parentId}
+		AND state =1
+		ORDER BY sort_number ASC
+  	</select>
+  	
+  	<!--通过父资源查找所有子资源(包括不可用)  -->
+  	<select id="getAllByParentId" resultType="ManageResource">
+  		SELECT * FROM ${tableName}
+		WHERE parent_id = #{parentId}
+		ORDER BY sort_number ASC
+  	</select>
+</mapper>

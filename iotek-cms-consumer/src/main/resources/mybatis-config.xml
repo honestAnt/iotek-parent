@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- MyBatis默认属性 -->
+	
+	<properties>
+		<!-- 分页插件需要拦截的ID(正则匹配) -->
+		<property name="pageSqlId" value=".*Page$"/>
+		
+	</properties>
+	<settings>
+		<!-- 全局映射器启用或禁用缓存 -->
+		<setting name="cacheEnabled" value="false" />
+		
+		<!-- 全局启用或禁用延迟加载 -->
+		<setting name="lazyLoadingEnabled" value="true" />
+		
+		<!--当延迟加载开启时访问对象中一个懒对象属性时，全局启用或禁用完全加载这个对象的所有懒对象属性。-->  
+        <setting name="aggressiveLazyLoading" value="false"/> 
+		
+		<!-- 允许或不允许多种结果集从一个单独 的语句中返回(需要适合的驱动) -->
+		<setting name="multipleResultSetsEnabled" value="true" />
+		
+		<!-- 使用列标签代替列名。 不同的驱动在这方便表现不同 -->
+		<setting name="useColumnLabel" value="true" />
+		
+		<!-- 允许JDBC支持生成的主键。 -->
+		<setting name="useGeneratedKeys" value="true" />
+		
+		<!--指定 MyBatis自动映射列到字段/属性。PARTIAL只会自动映射简单,没有嵌套的结果。FULL会自动映射任意复杂的结果(嵌套的或其他情况) -->
+		<setting name="autoMappingBehavior" value="PARTIAL" />
+		
+		<!-- 配置默认的执行器。 SIMPLE执行器:没有什么特别之处; REUSE执行器:重用预处理语句; BATCH执行器:重用语句和批量更新 -->
+		<setting name="defaultExecutorType" value="SIMPLE" />
+		
+		<!-- 设置超时时间, 它决定驱动等待一个数据库响应的时间(秒) 默认为null 永不超时 -->
+		<setting name="defaultStatementTimeout" value="25" />
+
+		<!--允许或不允许在嵌套语句中使用RowBounds -->
+		<setting name="safeRowBoundsEnabled" value="false" />
+		
+		<!--是否启用数据库列名通过驼峰规则自动从'A_COLUMN'映射成'aColumn' -->
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+		
+		<!-- 使用本地缓存以防止循环引用和加快重复嵌套查询,SESSION:所有的查询会在整个sqlSession会话期间缓存(默认);STATEMENT:仅语句执行期间缓存 -->
+		<setting name="localCacheScope" value="SESSION" />
+		
+		<!-- 当参数中没有JDBC提供的类型时，为这些空值指定一种JDBC的类型。某些驱动需要手动指定参数类型 大多数驱动都提供可选参数NULL,VARCHAR,OTHER -->
+		<setting name="jdbcTypeForNull" value="OTHER" />
+		
+		<!--指定对象的某些方法触发延迟加载 -->
+		<setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString" />
+		
+		<!-- 指定使用默认的语言来动态生成SQL -->
+		<setting name="defaultScriptingLanguage" value="org.apache.ibatis.scripting.xmltags.XMLLanguageDriver" />
+		
+		<!-- 当结果集中含有Null值时是否执行映射对象的setter或者Map对象的put方法。此设置对于原始类型如int,boolean等无效。 -->
+		<setting name="callSettersOnNulls" value="false" />
+		
+		<!-- 指定Mybatis的日志实现  SLF4J | LOG4J | LOG4J2 | JDK_LOGGING | COMMONS_LOGGING | STDOUT_LOGGING | NO_LOGGING-->
+		<setting name="logImpl" value="SLF4J"/>
+		
+		<!--为MyBatis的延迟加载指定一个代理 CGLIB|JAVASSIST -->
+		<setting name="proxyFactory" value="CGLIB" />
+		
+	</settings>
+	
+	<typeHandlers>
+		<typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="com.iotekclass.common.constants.enums.TopTypeEnum"/>
+		<typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="com.iotekclass.common.constants.enums.BooleanEnum"/>
+		<typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="com.iotekclass.common.constants.enums.EditTypeEnum"/>
+		<typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="com.iotekclass.common.constants.enums.QuestionTypeEnum"/>
+		<typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="com.iotekclass.common.constants.enums.UserGoodsStatusEnum"/>
+		<typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="com.iotekclass.common.constants.enums.FileTypeEnum"/>
+		<typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="com.iotekclass.common.constants.enums.UserCertStatusEnum"/>
+		<typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="com.iotekclass.common.constants.enums.UserCertExamEnum"/>
+		<typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="com.iotekclass.common.constants.enums.UserAuthentificationEnum"/>
+		<typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="com.iotekclass.common.constants.enums.UserExamObjectStatusEnum"/>
+		<typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="com.iotekclass.common.constants.enums.UserSimulationInterviewStatusEnum"/>
+		<typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="com.iotekclass.common.constants.enums.InterviewMethodEnum"/>
+	</typeHandlers>
+</configuration>

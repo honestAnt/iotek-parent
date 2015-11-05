@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iotekclass.cms.persist.permission.ManageAccountLogMapper">
+
+	<cache />
+
+	<!-- 保存 -->
+	<insert id="save" parameterType="ManageAccountLog" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO ${tableName}
+			(account_id,update_type,description,create_time,create_user)
+		VALUES
+			(#{accountId},#{updateType},#{description},now(),#{createUser})	
+	</insert>
+	
+	<!-- 更新 -->
+	<update id="update" parameterType="ManageAccountLog">
+		UPDATE ${tableName}
+		SET id = #{id}
+		<if test="accountId > 0">
+		,account_id = #{accountId}
+		</if>
+		<if test="updateType != -1">
+		,update_type = #{updateType}
+		</if>
+		<if test="description != null and description != ''">
+		,description = #{description}
+		</if>
+		WHERE id= #{id}
+	</update>
+	
+	<!-- 删除 -->
+	<delete id="delete">
+  		DELETE FROM ${tableName}
+  		WHERE id = ${id}
+  	</delete>
+  	
+  	<!-- 通过id获取对象 -->
+	<select id="getById" resultType="ManageAccountLog" >
+		SELECT * FROM ${tableName}
+		WHERE id = #{id}
+  	</select>
+  	
+  	<!-- 通过id获取对象 -->
+	<select id="getByAccountId" resultType="ManageAccountLog" >
+		SELECT * FROM ${tableName}
+		WHERE account_id = #{accountId}
+  	</select>
+  	
+</mapper>

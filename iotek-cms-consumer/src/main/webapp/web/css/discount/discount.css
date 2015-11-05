@@ -1,0 +1,400 @@
+/*
+Author:y.j
+Time:2015/4/22
+*/
+
+.asktion_05{ width: 160px; height: 28px; color: #646464;}
+.show{ display: block;}
+.hide{ display: none;}
+.col_4{ color: #85cb79}
+
+/*�������*/
+ /*�����б�*/
+ .check_sure{
+ 	margin-bottom: 20px;
+ }
+ .check_sure .input_btn {
+    background: none repeat scroll 0 0 #f47c52;
+    border: 1px solid #e66b41;
+    color: #fff;
+    font-size: 14px;
+    height: 30px;
+    width: 100px;
+	display:inline-block;
+	padding-top: 10px;
+	text-align:center;
+	text-decoration: none;
+	border-radius: 3px;
+}
+.Exper_Tables {
+    border-bottom: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+    font-size: 14px;
+}
+
+.Exper_Tables tr th {
+    background: none repeat scroll 0 0 #2f364a;
+    color: #fff;
+    font-weight: normal;
+    height: 35px;
+    line-height: 35px;
+}
+
+.Exper_Tables tr td {
+    border-right: 1px solid #e5e5e5;
+    border-top: 1px solid #dcdcdc;
+    color: #a7a7a7;
+    line-height: 21px;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.Exper_Tables tr.alt td {
+    background: none repeat scroll 0 0 #f5f5f5;
+}
+.operation_td span{ display:inline-block; margin-left:5px; margin-right:5px;}
+ /*��������*/
+.table_tc{ font-size:16px; font-family:΢���ź�;}
+.table_tc tr td span{ color:red; display:inline-block; margin-right: 10px;}
+.table_tc tr td input{ border: 1px solid #a1a1a1;}
+.text_01{ width:340px; height:35px;}
+.text_02{width:90px; height:35px; margin-left:10px; margin-right:10px;}
+.text_03{width:170px; height:35px;}
+.input_btn_01{
+	background: none repeat scroll 0 0 #e66b3f;
+    border: 1px solid #e66b41;
+    color: #fff;
+    font-size: 14px;
+    height: 40px;
+    width: 140px;
+	font-size:16px;
+	border-radius: 3px;
+}
+.opersa{
+	margin-top: 25px;
+	border:1px solid #a1a1a1;
+	background:#fff;
+	padding: 40px 60px 30px;
+	width:630px;
+	margin-bottom: 30px;
+	overflow-x: hidden;
+    overflow-y: scroll;
+    height:300px;
+}
+.opersa h3{
+	font-weight:normal;
+	font-family:΢���ź�;
+	font-size:16px;
+}
+.opersa ul{ margin-top:20px;}
+.opersa ul li{ float:left; padding-left: 20px;padding-right: 20px; height:40px; border:1px solid #7f7f7f; margin-right: 20px; margin-bottom:30px; text-align:center; line-height:40px; font-size:16px;}
+.opersa ul li:hover{border:1px solid #ff9900;}
+.cous_close{ background:url(../../images/discount/cousnt.jpg) no-repeat left 0; display:inline-block; width:11px; height:10px; position:relative; left: 15px; top: -5px;}
+.discount_tcr{ margin-left:35px;}
+.discount_top{ vertical-align:top;}
+.discount_top_01{
+	width:570px;
+	height:250px;
+	 border: 1px solid #d3d3d3;
+}
+.marn_top{ margin-top:20px;padding-left: 326px;}
+ /*�ͳ��*/
+ .check_sure_01 ul{ font-size:14px;}
+ .check_sure_01 ul li{ margin-right:40px;}
+ .check_sure_01 ul li.sic{margin-right:0px;}
+ .activi{ display:inline-block; margin-right:20px; font-size:16px; font-family:΢���ź�;}
+ .text_04{
+ 	border: 1px solid #d3d3d3;
+	width:250px; 
+	height:30px;
+ }
+ .height{height:50px;}
+ .input_btn_02{
+ 	background: none repeat scroll 0 0 #f47c52;
+    border: 1px solid #e66b41;
+    color: #fff;
+    font-size: 14px;
+    height: 35px;
+    width: 80px;
+	border-radius: 5%;
+ }
+.web_560{ width: 780px;}
+.valchine-align{ vertical-align:top;}
+.valchine-align_01{ width:740px; height:300px; border: 1px solid #d3d3d3;}
+.center{ text-align:center; padding-right: 260px; margin-top: 20px; margin-bottom: 40px;}
+.masure{
+	background: none repeat scroll 0 0 #e66b3f;
+    border: 1px solid #e66b3f;
+    color: #fff;
+    font-size: 14px;
+    height: 35px;
+    width: 100px;
+	border-radius: 5%;
+}
+.masee{
+	background: none repeat scroll 0 0 #e66b3f;
+    border: 1px solid #e66b3f;
+    color: #fff;
+    font-size: 16px;
+    height: 35px;
+    width: 100px;
+	border-radius: 5%;
+}
+.text_05{
+	border: 1px solid #d3d3d3;
+	width:450px; 
+	height:40px;
+}
+.check_sure_02{ margin-bottom:20px;91
+}
+.check_sure_02 ul li{ margin-right:40px;}
+
+/*���������*/
+.payforpbbox{
+    display: none;
+    position: fixed;
+	left:28%;
+    top: 15%;
+    z-index: 9999;
+}
+.payforpbbox1{
+    display: none;
+    position: fixed;
+	left:28%;
+    top: 15%;
+    z-index: 9999;
+}
+
+.prompt_main .rel_problem_1 .exper_date_02 {
+   border: 1px solid #a1a1a1;
+    height: 35px;
+    width: 130px;
+	font-family:#微软雅黑;
+	font-size:14px;
+}
+.prompt_main .rel_problem_1 {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+.overflow{overflow: scroll;overflow-x: hidden;height:80px;}
+.prompt_main .rel_problem_1 .exper_date_03 {
+    width: 270px;
+    margin-right: 20px;
+	height:30px;
+	border:1px solid #a1a1a1;
+}
+.prompt_main .rel_problem_1 input.button_s{
+	background: none repeat scroll 0 0 #f47c52;
+    border: 1px solid #e66b41;
+    color: #fff;
+    font-size: 14px;
+    height: 35px;
+    width: 80px;
+	border-radius: 5%;
+}
+
+.prompt_main .li_btn1 {
+    height: 42px;
+    line-height: 42px;
+    padding-left: 90px;
+}
+
+.prompt_main .li_btn1 input.confirm_btn {
+    background: none repeat scroll 0 0 #ff7646;
+    border: 1px solid #ff7646;
+    color: #fff;
+}
+.prompt_main .li_btn1 input {
+    font-size: 14px;
+    height: 40px;
+    margin-right: 8px;
+    width: 100px;
+}
+.payforpbbox h2 span.pmp_close {
+    background: url("../../images/system/close_06.jpg") no-repeat scroll left 0 rgba(0, 0, 0, 0);
+    cursor: pointer;
+    display: inline-block;
+    height: 9px;
+    overflow: hidden;
+    position: absolute;
+    right: 15px;
+    top: 11px;
+    width: 9px;
+}
+.prompt_main li span.dash_check_02{
+	background: url("../../images/system/check_01.png") no-repeat scroll left 10px rgba(0, 0, 0, 0);
+    color: #646464;
+    display: inline-block;
+    font-size: 14px;
+    padding-left: 15px;
+    text-align: left;
+    width: 80px;
+}
+.prompt_main li p.dash_check_02{
+	background: url("../../images/system/check_01.png") no-repeat scroll left 10px rgba(0, 0, 0, 0);
+    color: #646464;
+    font-size: 14px;
+    padding-left: 15px;
+    text-align: left;
+    width: 80px;
+}
+.prompt_main li p.dash_check_05{
+    color: #646464;
+    font-size: 14px;
+    padding-left: 15px;
+    text-align: left;
+    width: 80px;
+}
+.prompt_main li p label{
+   width: 220px;
+   display:inline-block;
+   margin-bottom:10px;
+}
+
+.prompt_main .rel_problem_1 span.span{
+    display: inline-block;
+    height: 21px;
+    line-height: 21px;
+    width: 200px;
+}
+
+.prompt_main .rel_problem_1 input.account_01 {
+    height: 12px;
+    width: 12px;
+}
+.prompt_main .rel_problem_1 input.account_02{
+    height: 12px;
+    width: 12px;
+}
+.prompt_main .rel_problem_1 textarea.account_04{
+    height: 128px;
+    width: 300px;
+}
+
+.payforpbbox1 {
+    background: none repeat scroll 0 0 #ffffff;
+    border-top: 3px solid #ff7646;
+    max-width: 620px;
+    overflow: hidden;
+}
+.payforpbbox1 h2.pmp_title {
+	margin-top: 0;
+    background:#e66b3f;
+    border-bottom: 1px solid #e8e8e8;
+    color: #fff;
+    font-size: 16px;
+    font-weight: normal;
+    height: 34px;
+    line-height: 34px;
+    padding-left: 20px;
+    position: relative;
+	font-family:#微软雅黑;
+}
+.payforpbbox1 h2 span.pmp_close {
+    background: url("../../images/discount/close_03.jpg") no-repeat scroll left 0 rgba(0, 0, 0, 0);
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    overflow: hidden;
+    position: absolute;
+    right: 15px;
+    top: 7px;
+    width: 20px;
+}
+.w_490 {
+    width: 510px;
+	font-family:΢���ź�;
+}
+.w_490 .cx {
+    font-size: 14px;
+    min-height: 100px;
+	padding: 20px 15px 20px 30px;
+}
+
+.prompt_main .li_btn2 input.confirm_btn {
+    background: none repeat scroll 0 0 #e66b3f;
+    border: 1px solid #e66b3f;
+    color: #fff;
+	border-radius: 3px;
+}
+.prompt_main  ul li label.check{ margin-right:20px;}
+.prompt_main .li_btn2 input {
+    font-size: 14px;
+    height: 40px;
+    margin-right: 8px;
+    width: 100px;
+}
+.prompt_main .li_btn2 {
+    height: 42px;
+    line-height: 42px;
+    padding-left: 150px;
+}
+.opersa_01{
+    margin-top: 25px;
+	border-top:1px solid #a1a1a1;
+}
+.opersa_01 h3{
+	font-weight:normal;
+	font-family:΢���ź�;
+	margin-top: 20px;
+}
+.opersa_01 ul{ margin-top:20px;}
+.opersa_01 ul li{ float:left;  padding-right: 10px;padding-left: 10px; height:40px; border:1px solid #7f7f7f; margin-right: 6px; margin-bottom:30px; text-align:center; line-height:40px; font-size:14px;}
+.opersa_01 ul li:hover{border:1px solid #ff9900;}
+.discount_tcr{ margin-left:35px;}
+.discount_top{ vertical-align:top; font-family:΢���ź�; font-size:16px;}
+.discount_top_01{
+	width:580px;
+	height:125px;
+	 border: 1px solid #a1a1a1;
+}
+.cous_close_01{
+	background: url("../../images/discount/cousnt.jpg") no-repeat scroll left 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 10px;
+    left: 8px;
+    position: relative;
+    top: -5px;
+    width: 11px;
+}
+/*�Ż�ȯ*/
+.discount_ter{ margin-top:40px;}
+.cou_text_02{
+	height: 35px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 148px;
+	border: 1px solid #a1a1a1;
+}
+.table_tc tr td input.cou_button{
+	background: none repeat scroll 0 0 #e66b3f;
+    border: 1px solid #e66b3f;
+    border-radius: 5%;
+    color: #fff;
+    font-size: 16px;
+    height: 39px;
+    width: 100px;
+	margin-left: 50px;
+}
+.table_tc tr td input.cou_button_01{
+	background: none repeat scroll 0 0 #e66b3f;
+    border: 1px solid #e66b3f;
+    border-radius: 5%;
+    color: #fff;
+    font-size: 16px;
+    height: 39px;
+    width: 140px;
+}
+.w_250{ width:250px; font-family:΢���ź�;}
+.li_discous_01{}
+.li_discous{ text-align:center; margin-top:30px;}
+.li_discous .confirm_btn{
+	 background: none repeat scroll 0 0 #e66b3f;
+    border: 1px solid #e66b3f;
+    border-radius: 3px;
+    color: #fff;
+	width:60px;
+	height:30px;
+}

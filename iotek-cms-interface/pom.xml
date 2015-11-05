@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>com.iotekclass</groupId>
+		<artifactId>iotek-parent</artifactId>
+		<version>3.0</version>
+	</parent>
+	<packaging>jar</packaging>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>iotek-cms-interface</artifactId>
+	<name>iotek-cms-interface</name>
+	<dependencies>
+		<dependency>
+	      <groupId>${project.groupId}</groupId>
+	      <artifactId>iotek-cms-model</artifactId>
+	      <version>${project.version}</version>
+	    </dependency>
+		<dependency>
+	      <groupId>${project.groupId}</groupId>
+	      <artifactId>iotek-common</artifactId>
+	      <version>${project.version}</version>
+	    </dependency>
+	</dependencies>
+	
+    <build>
+    	<finalName>cms-interface</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <additionalProjectnatures>
+                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+                    </additionalProjectnatures>
+                    <additionalBuildcommands>
+                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+                    </additionalBuildcommands>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <compilerArgument>-Xlint:all</compilerArgument>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <configuration>
+                    <mainClass>org.test.int1.Main</mainClass>
+                </configuration>
+            </plugin>  
+          </plugins>
+    </build>
+</project>

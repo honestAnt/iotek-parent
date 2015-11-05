@@ -1,0 +1,21 @@
+//1.测试环境打war包命令
+#mvn clean install -Dmaven.test.skip=true -pl  iotek-online-edu-web-portal -am
+#mvn clean install -Dmaven.test.skip=true -pl  iotek-online-edu-web-manage -am
+// 门户端命令:
+mvn clean package -Dmaven.test.skip=true -P proc-common-test,proc-web-common-test,proc-portal-test -pl iotek-online-edu-web-portal -am
+// 管理端命令:
+mvn clean package -Dmaven.test.skip=true -P proc-common-test,proc-web-common-test,proc-manage-test -pl iotek-online-edu-web-manage -am
+//2.生产坏境打war包命令
+mvn clean package -Dmaven.test.skip=true -P proc,proc-persist,proc-common -pl iotek-online-edu-web-portal -am
+
+
+//1.测试环境打war包命令
+#mvn clean install -Dmaven.test.skip=true -pl  iotek-online-edu-web-portal -am
+#mvn clean install -Dmaven.test.skip=true -pl  iotek-online-edu-web-manage -am
+// 门户端命令:
+mvn clean package -Dmaven.test.skip=true -P proc-common-test,proc-web-common-test,proc-portal-test -pl iotek-online-edu-web-portal -am
+// 管理端命令:
+mvn clean package -Dmaven.test.skip=true -P proc-common-test,proc-web-common-test,proc-manage-test -pl iotek-online-edu-web-manage -am
+//2.生产坏境打war包命令
+mvn clean package -Dmaven.test.skip=true -P proc,proc-persist,proc-common -pl iotek-online-edu-web-portal -am
+

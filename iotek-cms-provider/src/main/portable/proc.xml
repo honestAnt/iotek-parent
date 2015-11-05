@@ -1,0 +1,56 @@
+<!--?xml version="1.0" encoding="utf-8" ?-->
+<portable-config>
+ 
+ <!-- cas部署设置 -->
+<!--  <config-file path="WEB-INF/classes/cas.properties">
+ 	<replace key="cas.casServerUrlPrefix">https://passport.zhizuobiao.com</replace>
+ 	<replace key="cas.casService">http://www.zhizuobiao.com/manage/cas</replace>
+ 	<replace key="cas.redirectUrl">https://passport.zhizuobiao.com/logout?service=http://www.zhizuobiao.com/manage</replace>
+ 	<replace key="cas.loginUrl">https://passport.zhizuobiao.com/login?service=http://www.zhizuobiao.com/manage/cas</replace>
+ 	<replace key="cas.successUrl">/casIndex/index</replace>
+ 	<replace key="cas.unauthorizedUrl">/index/index</replace>
+ </config-file> -->
+ 
+ <config-file path="WEB-INF/classes/config.properties">
+ 	<replace key="portal_url">http://www.zhizuobiao.com</replace>
+ 	<replace key="cache_server">10.6.12.147:11211</replace>
+  </config-file>
+  
+  
+ <!-- jdbc部署设置 -->
+ <config-file path="WEB-INF/classes/spring-jdbc.properties">
+ 	<replace key="jdbc.driver">com.mysql.jdbc.Driver</replace>
+    <replace key="jdbc.url">jdbc:mysql://10.6.7.10:3306/cms?useUnicode=true&amp;characterEncoding=utf8&amp;relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;allowMultiQueries=true</replace>
+    <replace key="jdbc.username">root</replace>
+    <replace key="jdbc.password">iotek_java</replace>
+    <replace key="jdbc.pool.initialSize">20</replace>
+    <replace key="jdbc.pool.minIdle">20</replace>
+    <replace key="jdbc.pool.maxIdle">100</replace>
+    <replace key="jdbc.pool.maxActive">100</replace>
+ </config-file>
+ 
+ <!-- 日志配置 -->
+ <config-file path="WEB-INF/classes/log4j.properties">
+ 	<replace key="log4j.logger.com.iotekclass">INFO, RollingFile</replace>
+ 	<replace key="log4j.logger.org.apache.shiro">INFO, RollingFile</replace>
+ 	<replace key="log4j.logger.com.iotekclass.persist">WARN, RollingFile</replace>
+ </config-file>
+ 
+ <!-- redis缓存配置 -->
+ <config-file path="WEB-INF/classes/redis.properties">
+ 	<replace key="redis1.ip">10.6.5.133</replace>
+ 	<replace key="redis1.port">6379</replace>
+ 	<replace key="redis1.pass"></replace>
+ </config-file>
+ 
+  <!-- hessain部署设置 -->
+ <config-file path="WEB-INF/classes/hessian/hessian_client.properties">
+    <replace key="hessian.remote_url">http://www.zhizuobiao.com/remote</replace>
+ </config-file>
+ 
+ <!-- web.xml配置 -->
+ <config-file path="WEB-INF/web.xml">
+ 	<replace xpath="/web-app/context-param[@name='profiles']/param-value">production</replace>
+ </config-file>
+ 
+</portable-config>

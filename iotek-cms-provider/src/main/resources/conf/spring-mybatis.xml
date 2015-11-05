@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd"
+		default-lazy-init="true">
+	
+	<!-- mybatis 分页拦截 -->
+	<bean id="paginationInterceptor" class="com.iotekclass.persist.pagination.PaginationInterceptor" />
+	
+	<!-- MyBatis配置 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->
+		<property name="typeAliasesPackage" value="com.iotekclass.cms.model" />
+		<!-- 显式指定Mapper文件位置 -->
+		<property name="mapperLocations" value="classpath:/mapper/*/*Mapper.xml" />
+		<!-- Mybatis配置文件 -->
+		<property name="configLocation" value="classpath:/mybatis-config.xml" />
+		<!-- 自定义Mybatis插件 -->
+
+		<property name="plugins">
+			<list>
+				<ref bean="paginationInterceptor" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- 扫描basePackage下所有以@MyBatisRepository标识的 接口 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.iotekclass.cms.persist" />
+		<property name="annotationClass" value="com.iotekclass.persist.MyBatisRepository" />
+	</bean>
+	<!-- production环境 -->
+	<beans profile="production">
+		<context:property-placeholder ignore-unresolvable="true" location="classpath*:/spring-jdbc.properties" />
+		<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+			<!-- Tomcat JDBC连接池 -->
+			<property name="driverClassName" value="${jdbc.driver}" />
+			<property name="url" value="${jdbc.url}" />
+			<property name="username" value="${jdbc.username}" />
+			<property name="password" value="${jdbc.password}" />
+
+			<!-- Connection Pooling Info -->
+			<!-- 初始连接数 -->
+			<property name="initialSize" value="${jdbc.pool.initialSize}" />
+			<!-- 最小连接数 -->
+			<property name="minIdle" value="${jdbc.pool.minIdle}" />
+			<!-- 最大活动连接  跟maxIdle保持一致 -->
+			<property name="maxActive" value="${jdbc.pool.maxActive}" />
+			<!--最大连接数 -->
+			<property name="maxIdle" value="${jdbc.pool.maxIdle}" />
+			<!-- 连接池最长等待时间  毫秒 -->
+			<property name="maxWait" value="30000" />
+			
+			<!-- 是否默认提交 -->
+			<property name="defaultAutoCommit" value="false" />
+
+			<!-- 连接Idle半小时秒后超时  毫秒-->
+			<property name="timeBetweenEvictionRunsMillis" value="${jdbc.pool.timeBetweenEvictionRunsMillis}" />
+			<property name="minEvictableIdleTimeMillis" value="${jdbc.pool.minEvictableIdleTimeMillis}" />
+			
+			<!--启用jmx-->
+			<property name="jmxEnabled" value="true" />
+			
+			<!-- 各种验证 会消耗一些性能 开发模式开启 -->
+			<property name="testWhileIdle" value="true" />
+			<property name="testOnBorrow" value="true" />
+			<property name="testOnReturn" value="false" />
+			
+			<!-- 验证间隔 毫秒 -->
+			<property name="validationInterval" value="${jdbc.pool.validationInterval}" />
+			<property name="validationQuery" value="SELECT 1" />			
+			
+			<!-- 关闭长时间不使用的连接-->
+			<property name="logAbandoned" value="false" />
+			<property name="removeAbandoned" value="true" />
+			
+			<!--未关闭的连接超过 多少时间后删除 秒钟  -->
+			<property name="removeAbandonedTimeout" value="60" />
+			
+			<!-- 当长时间不释放的连接达到总连接数的某个百分比时，启动removeAbandoned动作  0~100的数字-->
+			<property name="abandonWhenPercentageFull" value="${jdbc.pool.abandonWhenPercentageFull}"/>
+			
+			<!-- jdbc拦截器 做拦截分析 -->
+			<property name="jdbcInterceptors"
+				value="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;
+				org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer" />
+		</bean>
+		<!-- 数据源配置,使用应用服务器的数据库连接池 -->
+		<!--<jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/ExampleDB" /> -->
+	</beans>
+	
+	
+	
+	<!-- local development环境 -->
+	<beans profile="development">
+		<context:property-placeholder ignore-resource-not-found="true"
+		ignore-unresolvable="true" 
+			location="classpath*:/spring-jdbc.properties,
+          			  classpath*:/application.development.properties,
+          			  classpath*:/application.properties" />
+
+		<!-- Tomcat JDBC连接池 -->
+		<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+			<!-- Tomcat JDBC连接池 -->
+			<property name="driverClassName" value="${jdbc.driver}" />
+			<property name="url" value="${jdbc.url}" />
+			<property name="username" value="${jdbc.username}" />
+			<property name="password" value="${jdbc.password}" />
+
+			<!-- Connection Pooling Info -->
+			<!-- 初始连接数 -->
+			<property name="initialSize" value="${jdbc.pool.initialSize}" />
+			<!-- 最小连接数 -->
+			<property name="minIdle" value="${jdbc.pool.minIdle}" />
+			<!-- 最大活动连接  跟maxIdle保持一致 -->
+			<property name="maxActive" value="${jdbc.pool.maxActive}" />
+			<!--最大连接数 -->
+			<property name="maxIdle" value="${jdbc.pool.maxIdle}" />
+			<!-- 连接池最长等待时间  毫秒 -->
+			<property name="maxWait" value="30000" />
+			
+			<!-- 是否默认提交 -->
+			<property name="defaultAutoCommit" value="false" />
+
+			<!-- 连接Idle半小时秒后超时  毫秒-->
+			<property name="timeBetweenEvictionRunsMillis" value="${jdbc.pool.timeBetweenEvictionRunsMillis}" />
+			<property name="minEvictableIdleTimeMillis" value="${jdbc.pool.minEvictableIdleTimeMillis}" />
+			
+			<!--启用jmx-->
+			<property name="jmxEnabled" value="true" />
+			
+			<!-- 各种验证 会消耗一些性能 开发模式开启 -->
+			<property name="testWhileIdle" value="true" />
+			<property name="testOnBorrow" value="true" />
+			<property name="testOnReturn" value="false" />
+			
+			<!-- 验证间隔 毫秒 -->
+			<property name="validationInterval" value="${jdbc.pool.validationInterval}" />
+			<property name="validationQuery" value="SELECT 1" />			
+			
+			<!-- 关闭长时间不使用的连接-->
+			<property name="logAbandoned" value="false" />
+			<property name="removeAbandoned" value="true" />
+			
+			<!--未关闭的连接超过 多少时间后删除 秒钟  -->
+			<property name="removeAbandonedTimeout" value="60" />
+			
+			<!-- 当长时间不释放的连接达到总连接数的某个百分比时，启动removeAbandoned动作  0~100的数字-->
+			<property name="abandonWhenPercentageFull" value="${jdbc.pool.abandonWhenPercentageFull}"/>
+			
+			<!-- jdbc拦截器 做拦截分析 -->
+			<property name="jdbcInterceptors"
+				value="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;
+				org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer" />
+				 
+		</bean>
+	</beans>
+
+
+</beans>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iotekclass.cms.persist.permission.ManageRoleResourceRelMapper">
+
+	<cache />
+
+	<!-- 保存 -->
+	<insert id="save" parameterType="ManageRoleResourceRel" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO ${tableName}
+			(role_id,resource_id,permission,create_time,create_user,update_time,update_user)
+		VALUES
+			(#{roleId},#{resourceId},#{permission},now(),#{createUser},now(),#{updateUser})	
+	</insert>
+	
+	<!-- 更新 -->
+	<update id="update" parameterType="ManageRoleResourceRel">
+		UPDATE ${tableName}
+		SET update_time = now()
+		<if test="permission != null and permission != ''">
+		,permission = #{permission}
+		</if>
+		<if test="updateUser > 0">
+		,update_user = #{updateUser}
+		</if>
+		WHERE id= #{id}
+	</update>
+	
+	<!-- 删除 -->
+	<delete id="delete">
+  		DELETE FROM ${tableName}
+  		WHERE id = ${id}
+  	</delete>
+  	
+  	<!-- 通过id获取对象 -->
+	<select id="getById" resultType="ManageRoleResourceRel" >
+		SELECT * FROM ${tableName}
+		WHERE id = #{id}
+  	</select>
+  	
+  	<select id="getByRoleIdOrResourceId" resultType="ManageRoleResourceRel">
+  		SELECT * FROM ${tableName}
+  		WHERE 1=1
+  		<if test="roleId != null and roleId != ''">
+	  		and role_id = #{roleId}
+  		</if>
+  		<if test="resourceId != null and resourceId != ''">
+	  		AND resource_id = #{resourceId}
+  		</if>
+  	</select>
+  	
+  	<!-- 取角色对应的相同资源(URL)中第一个权限信息  -->
+  	<select id="getFirstByRole" resultType="ManageRoleResourceRel">
+  		select * from ${tableName}
+  		<if test="roleId != null and roleId != ''">
+	  		where role_id = #{roleId}
+  		</if>
+		group by role_id,resource_id
+		ORDER BY permission ASC
+  	</select>
+  	
+  	<!-- 删除角色权限数据 -->
+	<delete id="deleteRoleResourceByRole">
+  		DELETE FROM ${tableName}
+  		WHERE role_id = ${roleId}
+  	</delete>
+  	
+  	<!-- 删除角色某一权限数据 -->
+	<delete id="deleteRoleResourceByRoleAndResource">
+  		DELETE FROM ${tableName}
+  		WHERE role_id = ${roleId}
+  		and resource_id = ${resourceId}
+  	</delete>
+  	
+  	<insert id="saveBatch">
+	  INSERT INTO ${tableName}
+	   (role_id,resource_id,permission,create_time,create_user,update_time,update_user)
+	  VALUES
+	  <foreach collection="list" item="item" index="index" separator=",">
+	   	(#{item.roleId},#{item.resourceId},#{item.permission},now(),#{item.createUser},now(),#{item.updateUser})
+	  </foreach>
+ 	</insert>
+  	
+</mapper>

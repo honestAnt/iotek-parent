@@ -1,0 +1,1 @@
+ALTER TABLE tb_user_info MODIFY COLUMN college  VARCHAR(100)

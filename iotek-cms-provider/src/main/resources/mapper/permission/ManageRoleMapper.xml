@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iotekclass.cms.persist.permission.ManageRoleMapper">
+
+	<cache />
+
+	<!-- 保存 -->
+	<insert id="save" parameterType="ManageRole" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO ${tableName}
+			(name,description,type,create_time,create_user,update_time,update_user)
+		VALUES
+			(#{name},#{description},#{type},now(),#{createUser},now(),#{updateUser})	
+	</insert>
+	
+	<!-- 更新 -->
+	<update id="update" parameterType="ManageRole">
+		UPDATE ${tableName}
+		SET update_time = now()
+		<if test="name != null and name != ''">
+		,name = #{name}
+		</if>
+		<if test="description != null and description != ''">
+		,description = #{description}
+		</if>
+		<if test="type != -1">
+		,type = #{type}
+		</if>
+		<if test="updateUser > 0">
+		,update_user = #{updateUser}
+		</if>
+		WHERE id= #{id}
+	</update>
+	
+	<!-- 删除 -->
+	<delete id="delete">
+  		DELETE FROM ${tableName}
+  		WHERE id = ${id}
+  	</delete>
+  	
+  	<!-- 通过id获取对象 -->
+	<select id="getById" resultType="ManageRole" >
+		SELECT * FROM ${tableName}
+		WHERE id = #{id}
+  	</select>
+  	
+  	<!-- 通过账号id查找所属角色 -->
+	<select id="getByAccountId" resultType="ManageRole" >
+		SELECT A.* FROM ${tableName} A,tb_manage_account_role B
+		WHERE A.id = B.role_id
+		AND B.account_id = #{accountId}
+  	</select>
+  	
+  	<!-- 分类查找 -->
+  	<select id="getByTypePage" resultType="ManageRole">
+  		SELECT * FROM ${tableName} 
+  		WHERE type = #{type}
+  		ORDER BY create_time DESC
+  	</select>
+  	<!--各分类下的总数  -->
+  	<select id="getCountByType" resultType="Integer">
+  		SELECT count(*) FROM ${tableName} 
+  		WHERE type = #{type}
+  		ORDER BY create_time DESC
+  	</select>
+  	
+  	<select id="getByType" resultType="ManageRole">
+  			SELECT * FROM ${tableName}
+  			WHERE type = #{type}
+  	</select>
+  	
+  	<select id="findByNameOrType" resultType="ManageRole">
+  		SELECT * FROM ${tableName} 
+  		WHERE name = #{name}
+  		<if test="type != null and type > 0">
+  			AND type = #{type}
+  		</if> 
+  		LIMIT 1
+  	</select>
+</mapper>

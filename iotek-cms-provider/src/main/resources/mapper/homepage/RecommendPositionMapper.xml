@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iotekclass.cms.persist.homepage.RecommendPositionMapper">
+
+	<select id="getById" resultType="RecommendPosition" >
+		SELECT * FROM ${tableName}
+		WHERE id = #{id}
+  	</select>
+  	
+  	<update id="update" parameterType="RecommendPosition">
+		UPDATE ${tableName}
+		SET update_time = now()
+		<if test="name != null and name != ''">
+			,name = #{name}
+		</if>
+		<if test="updateUser != null and updateUser != ''">
+			,update_user = #{updateUser}
+		</if>
+		WHERE id= #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM ${tableName}
+		WHERE id= #{id}
+	</update>
+	
+	<insert id="save" parameterType="RecommendPosition" useGeneratedKeys="true" keyProperty="id">
+  		INSERT INTO ${tableName}
+		(name,create_user,create_time)
+  		VALUES
+  		(#{name},#{createUser},now())
+	</insert>
+  	<!-- 获取所有推荐位信息-->
+  	<select id="getAll" resultType="RecommendPosition">
+  		SELECT * FROM ${tableName}
+  	</select>
+  	<!-- 获取所有推荐位信息（分页） -->
+  	<select id="getAllPage" resultType="RecommendPosition">
+  		SELECT * FROM ${tableName}
+  		ORDER BY create_time DESC
+  	</select>
+  	<!-- 获取所有推荐位数量 -->
+  	<select id="getAllCount" resultType="Integer">
+  		SELECT COUNT(*) FROM ${tableName}
+  	</select>
+  	<!-- 通过名字获取推荐信息 -->
+  	<select id="getByName" resultType="RecommendPosition">
+  		SELECT * FROM ${tableName}
+  		WHERE name = #{name}
+  		LIMIT 1
+  	</select>
+</mapper>

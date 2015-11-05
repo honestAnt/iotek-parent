@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iotekclass.cms.persist.goodseo.GoodsSeoInfoMapper">
+
+	<cache />
+
+	<!-- 保存 -->
+	<insert id="save" parameterType="GoodsSeoInfo" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO ${tableName} (
+			goods_id,
+			title,
+			keywords,
+			keywords_desc,
+			status,
+			delete_flag,
+			create_user,
+			create_time,
+			update_user,
+			update_time
+		) 
+		VALUES (
+			#{goodsId}
+			, #{title} 
+			, #{keywords} 
+			, #{keywordsDesc} 
+			, #{status} 
+			, #{deleteFlag} 
+			, #{createUser} 
+			, now() 
+			, #{updateUser} 
+			, #{updateTime} 
+		)	
+	</insert>
+	
+	<!-- 更新 -->
+	<update id="update" parameterType="GoodsSeoInfo">
+		UPDATE ${tableName}
+		set update_time=now()
+  		<if test="title != null and title != ''">
+  			, title = #{title} 
+  		</if>
+  		<if test="keywords != null and keywords != ''">
+  			, keywords = #{keywords} 
+  		</if>
+  		<if test="keywordsDesc != null and keywordsDesc != ''">
+  			, keywords_desc = #{keywordsDesc} 
+  		</if>
+  		<if test="status > 0">
+  			, status = #{status} 
+  		</if>
+  		<if test="auditUser > 0">
+  			, audit_user = #{auditUser} 
+  		</if>
+  		<if test="auditTime != null and auditTime !=''">
+  			, audit_time = now()  
+  		</if>
+  		<if test="backReason != null and backReason !=''">
+  			, back_reason = #{backReason} 
+  		</if>
+  		<if test="deleteFlag > 0">
+  			, delete_flag = #{deleteFlag} 
+  		</if>
+  		<if test="updateUser > 0">
+  			, update_user = #{updateUser} 
+  		</if>
+		WHERE id= #{id}
+	</update>
+	
+	<!-- 删除 -->
+	<delete id="delete">
+  		DELETE FROM ${tableName}
+  		WHERE id = ${id}
+  	</delete>
+  	
+  	<!-- 通过id获取对象 -->
+	<select id="getById" resultType="GoodsSeoInfo" >
+		SELECT * FROM ${tableName}
+		WHERE id = #{id}
+  	</select>
+  	
+	<!-- 通过商品id获取SEO信息    sq.xiao@iotek.com.cn   2015-07-20  -->
+	<select id="getGoodSeoInfoByGoodsId"  resultType="GoodsSeoInfo" >
+		SELECT * FROM ${tableName} WHERE goods_id = #{goodsId} AND delete_flag = 0  LIMIT 1 
+  	</select>
+  	
+  	
+  	<!-- 通过商品id获取状态为已发布的SEO信息    sq.xiao@iotek.com.cn   2015-07-23  -->
+	<select id="getReleasedGoodsSeoInfoByGoodsId"  resultType="GoodsSeoInfo" >
+		SELECT * FROM ${tableName} WHERE goods_id = #{goodsId} AND status = ${seoStatus}  AND delete_flag = 0  LIMIT 1 
+  	</select>
+  	
+  	
+  	<!-- 通过商品id删除SEO信息    sq.xiao@iotek.com.cn   2015-07-21  -->
+	<delete id="deleteGoodsSeoInfoByGoodsId" >
+		 DELETE FROM ${tableName} WHERE goods_id = #{goodsId} LIMIT 1  
+  	</delete>
+  	
+</mapper>

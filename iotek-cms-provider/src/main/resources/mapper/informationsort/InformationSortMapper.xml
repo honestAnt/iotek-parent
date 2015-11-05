@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iotekclass.cms.persist.informationsort.InformationSortMapper">
+  	<!-- 获取所有数据 -->
+  	<select id="getAll" resultType="InformationSort">
+  	SELECT * FROM ${tableName}
+  	</select>
+  	
+  	<!-- 根据父ID获取数据 -->
+  	<select id="getByParentId" resultType="InformationSort">
+  		SELECT * FROM tb_information_sort WHERE 1=1 AND parent_id =#{parentId}
+  	</select>
+
+	<!-- 根据ID查询-->
+	<select id="getById" resultType="InformationSort" >
+		SELECT * FROM ${tableName}
+		WHERE id = #{id} 
+		LIMIT 1 
+  	</select>
+  	
+  	<!-- 查询所有引用此分类的资讯数量 -->
+	<select id="countRefById" resultType="int" >
+  		SELECT COUNT(1) FROM tb_information i 
+  			WHERE i.second_level_id=#{id} OR first_level_id =#{id}
+  	</select>
+  	
+  	<!-- 验证名字在一级分类中是否存在 -->
+	<select id="verifySortName" resultType="InformationSort" >
+		SELECT * FROM tb_information_sort
+		WHERE 1=1 AND sort_name =#{sortName} AND parent_id=0 
+		LIMIT 1 
+  	</select>
+  	
+	<!-- 删除 -->
+	<delete id="delete">
+		DELETE FROM ${tableName}
+		WHERE id = #{id} 
+	</delete>
+	
+	<!-- 新增 -->
+	<insert id="save" parameterType="InformationSort" useGeneratedKeys="true"
+		keyProperty="id">
+		INSERT INTO tb_information_sort(
+		sort_name,
+		seo_title,
+		seo_keywords,
+		seo_descr,
+		sort_number,
+		create_user,
+		create_time,
+		parent_id)
+		VALUES(
+		#{sortName},
+		#{seoTitle},
+		#{seoKeywords},
+		#{seoDescr},
+		#{sortNumber},
+		#{createUser},
+		#{createTime},
+		#{parentId})
+	</insert>
+	
+	<!-- 更新 -->
+	<update id="update" parameterType="InformationSort">
+		UPDATE ${tableName}
+		set id= #{id}
+		<if test="sortName != null">
+			,sort_name = #{sortName}
+		</if>
+		<if test="seoTitle != null">
+			,seo_title = #{seoTitle}
+		</if>
+		<if test="seoKeywords != null">
+			,seo_keywords = #{seoKeywords}
+		</if>
+		<if test="seoDescr != null">
+			,seo_descr = #{seoDescr}
+		</if>
+		<if test="updateTime != null">
+			,update_time = #{updateTime}
+		</if>
+		<if test="updateUser != null">
+			,update_user = #{updateUser}
+		</if>
+		WHERE id= #{id}
+	</update>
+</mapper>

@@ -1,0 +1,512 @@
+@charset "utf-8";
+/* CSS Document */
+
+.check_sure {
+    padding-top: 20px;
+	text-align:right;
+}
+
+.homework_main_1 {
+    margin-top: 10px;
+}
+
+.mywork_title_1 {
+    background: none repeat scroll 0 0 #f5f5f5;
+    border-bottom: 1px solid #dcdcdc;
+    height: 53px;
+    line-height: 53px;
+}
+.homework_main_1 .hovertab_mywork {
+    background: none repeat scroll 0 0 #fff;
+    border-left: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+    border-top: 3px solid #f47c52;
+    color: #f47c52;
+    font-size: 14px;
+    height: 51px;
+}
+.mywork_title_1 ul li {
+    cursor: pointer;
+    float: left;
+    font-size: 14px;
+    text-align: center;
+    width: 135px;
+}
+
+.homework_main_1 .nor_mywork {
+    border-right: 1px solid #fafafa;
+    color: #747474;
+}
+.homework_main_1 .unall_letter_net {
+    display: none;
+}
+
+.homewk_content_1 {
+    padding: 30px 10px 30px 0;
+}
+
+.Exper_Tables {
+    border-bottom: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+    font-size: 14px;
+}
+
+.Exper_Tables tr th {
+    background: none repeat scroll 0 0 #2f364a;
+    color: #fff;
+    font-weight: normal;
+    height: 35px;
+    line-height: 35px;
+}
+
+.Exper_Tables tr td {
+    border-right: 1px solid #e5e5e5;
+    border-top: 1px solid #dcdcdc;
+    color: #a7a7a7;
+    line-height: 21px;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.Exper_Tables tr.alt td {
+    background: none repeat scroll 0 0 #f5f5f5;
+}
+
+.operation_td a {
+    margin-left: 30px;
+    text-decoration: none;
+	margin-right:30px;
+}
+
+.check_sure .input_btn {
+    background: none repeat scroll 0 0 #f47c52;
+    border: 1px solid #e66b41;
+    color: #fff;
+    font-size: 14px;
+    height: 40px;
+    width: 100px;
+}
+/*权限管理*/
+.dash_wrapper .nav{
+    height:40px;
+	background:#f37c52;
+	border:1px solid #f57b52;
+    
+}
+.posit_nav {
+    position: fixed;
+    top: 0;
+    width: 768px;
+    z-index: 100;
+}
+.dash_wrapper .nav li {
+     color: #fff;
+    float: left;
+    font-size: 16px;
+    
+}
+.dash_wrapper .nav li.outl_Title_01 {
+	margin-right:210px;
+	padding-left:10px;
+	padding-top:10px;
+    width: 140px;
+}
+.dash_wrapper .nav li.outl_Title_02 {
+	margin-right:35px;
+	padding-top:10px;
+    
+}
+
+.dash_sure1 {
+    text-align:center;
+	margin-top: 10px;
+}
+
+.dash_sure1 .input_btn {
+    background: none repeat scroll 0 0 #f47c52;
+    border: 1px solid #e66b40;
+    color: #fff;
+    font-size: 14px;
+    height: 40px;
+    width: 100px;
+	margin-right: 20px;
+}
+.dash_sure1 .input_btn1 {
+    background: none repeat scroll 0 0 #676767;
+    border: 1px solid #545454;
+    color: #fff;
+    font-size: 14px;
+    height: 40px;
+    width: 100px;
+}
+.outl_header{
+	height:40px;
+	 padding-top: 20px;
+	 font-size:16px;
+}
+.outl_header a{
+	text-decoration:none;
+	color:#646464;
+}
+.outl_header a:hover{
+	text-decoration:none;
+	color:#646464;
+}
+.outl_header .mgin_em {
+	background:url(../../images/system/d1_03.jpg) no-repeat;
+	height:20px;
+	width:22px;
+	display: inline-block;
+	float:left;
+	padding-left: 20px;
+}
+.outl_header .mgin_em_1 {
+	background:url(../../images/system/d2_03.jpg) no-repeat;
+	height:20px;
+	width:22px;
+	display: inline-block;
+	float:left;
+	padding-left: 20px;
+}
+.outl_header .mgin_em_2 {
+	background:url(../../images/system/d3_03.jpg) no-repeat;
+	height:25px;
+	width:22px;
+	display: inline-block;
+	float:left;
+	padding-left: 20px;
+}
+.outl_header .mgin_em_3 {
+	background:url(../../images/system/d4_03.jpg) no-repeat;
+	height:20px;
+	width:22px;
+	display: inline-block;
+	float:left;
+	padding-left: 20px;
+}
+.outl_header .mgin_em_4 {
+	background:url(../../images/system/d5_03.jpg) no-repeat;
+	height:25px;
+	width:22px;
+	display: inline-block;
+	float:left;
+	padding-left: 20px;
+}
+.outl_header .mgin_em_5 {
+	background:url(../../images/system/d6_03.jpg) no-repeat;
+	height:20px;
+	width:22px;
+	display: inline-block;
+	float:left;
+	padding-left: 20px;
+}
+.outl_header .mgin_em_6 {
+	background:url(../../images/system/d7_03.jpg) no-repeat;
+	height:20px;
+	width:22px;
+	display: inline-block;
+	float:left;
+	padding-left: 20px;
+}
+.outl_header .mgin_em_7 {
+	background:url(../../images/system/d8_03.jpg) no-repeat;
+	height:20px;
+	width:22px;
+	display: inline-block;
+	float:left;
+	padding-left: 20px;
+}
+.outl_header .mgin_em_8 {
+	background:url(../../images/system/d9_03.jpg) no-repeat;
+	height:20px;
+	width:22px;
+	display: inline-block;
+	float:left;
+	padding-left: 20px;
+}
+.outl_header .mgin_em_9 {
+	background:url(../../images/system/d10_03.jpg) no-repeat;
+	height:30px;
+	width:22px;
+	display: inline-block;
+	float:left;
+	padding-left: 20px;
+}
+.outl_header .mgin_em_10 {
+	background:url(../../images/system/d11_03.jpg) no-repeat;
+	height:25px;
+	width:22px;
+	display: inline-block;
+	float:left;
+	padding-left: 20px;
+}
+.outl_header .mgin_em_11 {
+	background:url(../../images/system/d12_03.jpg) no-repeat;
+	height:25px;
+	width:22px;
+	display: inline-block;
+	float:left;
+	padding-left: 20px;
+}
+.outlinemenu ul{
+	padding-left:70px;
+}
+.outlinemenu ul li label input.account_02{
+	margin-right:30px;
+	width: 28px;
+}
+.free_learning input.account_02{
+	margin-right:30px;
+	width: 28px;
+}
+.outlinemenu ul li i.account_03{
+	margin-right:32px;
+	width: 30px;
+	display:inline-block;
+}
+.account_03{
+	margin-right:30px;
+	width: 28px;
+	display:inline-block;
+}
+.outlinemenu ul li span{
+	 font-size:16px;
+	 display:inline-block;
+	 height: 40px;
+    width: 160px;
+}
+.outlinemenu ul li span.section_name{
+	margin-right:120px;
+}
+.outl_header span{
+	display: inline-block;
+	margin-right: 206px;
+    width: 100px;
+}
+/*公共弹出框*/
+.payforpbbox{
+    display: none;
+    position: fixed;
+	left:28%;
+    top: 15%;
+    z-index: 9999;
+}
+.payforpbbox1{
+    display: none;
+    position: fixed;
+	left:28%;
+    top: 5%;
+    z-index: 9999;
+}
+
+.prompt_main .rel_problem_1 .exper_date_02 {
+   border: 1px solid #d3d3d3;
+    height: 30px;
+    width: 160px;
+}
+.prompt_main .rel_problem_1 .exper_date_03 {
+    width: 155px;
+}
+
+.prompt_main .li_btn1 {
+    height: 42px;
+    line-height: 42px;
+    padding-left: 90px;
+}
+
+.prompt_main .li_btn1 input.confirm_btn {
+    background: none repeat scroll 0 0 #ff7646;
+    border: 1px solid #ff7646;
+    color: #fff;
+}
+.prompt_main .li_btn1 input {
+    font-size: 14px;
+    height: 40px;
+    margin-right: 8px;
+    width: 100px;
+}
+.payforpbbox h2 span.pmp_close {
+    background: url("../../images/system/close_06.jpg") no-repeat scroll left 0 rgba(0, 0, 0, 0);
+    cursor: pointer;
+    display: inline-block;
+    height: 9px;
+    overflow: hidden;
+    position: absolute;
+    right: 15px;
+    top: 11px;
+    width: 9px;
+}
+.prompt_main li span.dash_check_02{
+	background: url("../../images/system/check_01.png") no-repeat scroll left 10px rgba(0, 0, 0, 0);
+    color: #646464;
+    display: inline-block;
+    font-size: 14px;
+    padding-left: 15px;
+    text-align: left;
+    width: 80px;
+}
+.prompt_main li p.dash_check_02{
+	background: url("../../images/system/check_01.png") no-repeat scroll left 10px rgba(0, 0, 0, 0);
+    color: #646464;
+    font-size: 14px;
+    padding-left: 15px;
+    text-align: left;
+    width: 80px;
+}
+.prompt_main li p.dash_check_05{
+    color: #646464;
+    font-size: 14px;
+    padding-left: 15px;
+    text-align: left;
+    width: 80px;
+}
+.prompt_main li p.account_03{
+   width: 330px;
+}
+.prompt_main li p label{
+   width: 80px;
+   display: block;
+   float:left;
+}
+
+.prompt_main .rel_problem_1 input.account_01 {
+    height: 12px;
+    width: 12px;
+}
+.prompt_main .rel_problem_1 input.account_02{
+    height: 12px;
+    width: 12px;
+}
+.prompt_main .rel_problem_1 textarea.account_04{
+    height: 128px;
+    width: 300px;
+}
+
+.payforpbbox1 {
+    background: none repeat scroll 0 0 #ffffff;
+    border-top: 3px solid #ff7646;
+    max-width: 490px;
+    overflow: hidden;
+}
+.payforpbbox1 h2.pmp_title {
+    background: url("../../images/user/p_bg.jpg") repeat-x scroll left center rgba(0, 0, 0, 0);
+    border-bottom: 1px solid #e8e8e8;
+    color: #fff;
+    font-size: 14px;
+    font-weight: normal;
+    height: 34px;
+    line-height: 34px;
+    padding-left: 20px;
+    position: relative;
+    margin-top: 0px;
+}
+.payforpbbox1 h2 span.pmp_close {
+    background: url("../../images/user/close_06.jpg") no-repeat scroll left 0 rgba(0, 0, 0, 0);
+    cursor: pointer;
+    display: inline-block;
+    height: 9px;
+    overflow: hidden;
+    position: absolute;
+    right: 15px;
+    top: 11px;
+    width: 9px;
+}
+.w_490 {
+    width: 490px;
+}
+.w_490 .cx {
+    font-size: 14px;
+    min-height: 100px;
+	padding: 10px 15px 20px 30px;
+}
+
+.prompt_main .li_btn2 input.confirm_btn {
+    background: none repeat scroll 0 0 #ff7646;
+    border: 1px solid #ff7646;
+    color: #fff;
+}
+.prompt_main .li_btn2 input {
+    font-size: 14px;
+    height: 40px;
+    margin-right: 8px;
+    width: 100px;
+}
+.prompt_main .li_btn2 {
+    height: 42px;
+    line-height: 42px;
+    padding-left: 150px;
+}
+
+
+
+/**/
+
+.sys_zy{ font-size: 14px;}
+.sys_zy_list{ border-left: solid 1px #e8e8e8; border-bottom: solid 1px #e8e8e8; border-collapse:collapse;}
+.sys_zy_list tr td{ height: 40px; line-height: 40px; padding: 0 5px; border-right: solid 1px #e8e8e8; empty-cells: show; vertical-align: middle; text-align: center !important;}
+.sys_zy_list tr th{ background: #2f364a; font-weight: normal; color:#FFF; height: 35px; line-height: 35px; text-align: center;}
+.sys_zy_list tr td p{ line-height: 24px; }
+.sys_zy_list tr:nth-child(odd) td{ background: #f5f5f5;}
+
+.add_1{ height: 30px; padding: 15px 0;}
+.add_btn{ height: 30px; line-height: 30px; display: block; width: 60px; padding: 0 15px; border:none; background: #ff8156; font-size: 14px; color: #FFF;}
+
+.popup{ font-size: 14px; width: 100%; height: 100%; position: fixed; top: 0; left: 0; background: rgba(0,0,0,.3); display: none;} 
+
+
+.popup_box{ width: 364px; height: 180px; background: #FFF; position: absolute; left:50%; margin-left: -182px; top: 50%; margin-top: -90px;}
+.popup_box1{ width: 364px; height: 360px; background: #FFF; position: absolute; left:50%; margin-left: -182px; top: 50%; margin-top:-150px;} 
+.popup_box2{ width: 364px; height: 540px; background: #FFF; position: absolute; left:50%; margin-left: -182px; top: 50%; margin-top:-270px;}
+
+
+.pop_title{ height: 44px; background: #f47c52; padding: 0 20px; line-height: 44px; color: #FFF;}
+#close{ cursor: pointer;}
+.pop_con{ height: 200px; padding: 15px 22px 0 22px;}
+.pop_con1{ height: 135px; border-bottom: 1px solid #ccc;}
+.pop_con1 h3{ font-size: 14px; font-weight: bold;} 
+
+.pop_txt{ width: 195px; padding: 0px 3px; height: 24px; line-height: 24px; border: 1px solid #abadb3; color: #646464; }
+
+
+
+.s_cz_tab tr td{  
+    font-size: 14px;
+    vertical-align: top;
+}
+.g_txt {
+    border: 1px solid #d3d3d3;
+    color: #646464; 
+    font-size: 12px;
+    height: 24px;
+    line-height: 24px;
+    padding: 2px 4px;
+    width: 240px;
+}
+.g_area{
+    border: 1px solid #d3d3d3;
+    color: #646464; 
+    font-size: 12px;
+    
+    line-height: 24px;
+    padding: 2px 4px;
+    width: 240px;
+}
+.btn_ok {
+    background: #f47c52 none repeat scroll 0 0;
+    border: 1px solid #f47c52 !important;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    height: 30px;
+}
+
+.s_txt{ width: 200px; padding: 0 3px; height: 28px; border: 1px solid #abadb3; color: #646464; }
+.btn_1{ height: 30px; padding: 0 15px; border:none; background: #ff8156; font-size: 14px; color: #FFF;}
+.time_txt{ width: 120px; padding: 2px 3px; height: 24px; line-height: 24px; border: 1px solid #abadb3; color: #646464; }
+
+.class_tab{ height: auto; overflow: hidden; padding: 20px 0;}
+.c_tab tr td,.c_tab tr th{ vertical-align: middle; text-align: left;} 
+.c_tab tr th{ padding-left: 25px;}
+.c_tab tr.class_2 td:nth-child(1){ padding-left: 16px;}
+.qx_tab tr td,.qx_tab tr th{ height: 35px; line-height: 35px;}

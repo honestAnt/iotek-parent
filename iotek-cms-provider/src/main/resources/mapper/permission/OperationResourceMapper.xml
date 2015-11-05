@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iotekclass.cms.persist.permission.OperationResourceMapper">
+
+	<cache />
+
+	<!-- 保存 -->
+	<insert id="save" parameterType="OperationResource" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO ${tableName}
+			(module,type,url,detail)
+		VALUES
+			(#{module},#{type},#{url},#{detail})	
+	</insert>
+	
+	<update id="update" parameterType="OperationResource">
+		UPDATE ${tableName}
+		SET module= #{module} 
+			, type = #{type} 
+			, url = #{url} 
+			, detail = #{detail} 
+		WHERE id= #{id}
+	</update>
+	
+	<select id="getById" resultType="OperationResource" >
+		SELECT * FROM ${tableName}
+		WHERE id = #{id}
+  	</select>
+	
+	
+	<select id="getByUrl" resultType="OperationResource">
+		SELECT * FROM ${tableName}
+		WHERE 
+		url = #{url}
+		AND type != 4
+		limit 1
+	</select>
+	
+	<!-- 根据URL查询资源(不带类型条件进行查询)   sq.xiao@iotek.com.cn  2015-06-23 -->
+	<select id="queryResourceByUrl" resultType="OperationResource">
+		SELECT * FROM ${tableName} 
+		WHERE url = #{url}
+		limit 1 
+	</select>
+	
+	<!-- 根据条件查询操作资源总数量 sq.xiao@iotek.com.cn  2015-06-19 -->
+	<select id="searchResourcesListCount" resultType="Integer">
+		SELECT COUNT(*) FROM ${tableName}
+	</select>
+	
+	<!-- 分页查询操作资源     sq.xiao@iotek.com.cn  2015-06-19 -->
+	<select id="searchResourcesList" resultType="OperationResource">
+		SELECT * FROM ${tableName} ORDER BY id DESC  
+	</select>
+	
+</mapper>
+
+

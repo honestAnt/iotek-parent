@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iotekclass.cms.persist.banner.HomeBannerMapper">
+
+	<select id="getById" resultType="HomeBanner" >
+		SELECT * FROM ${tableName}
+		WHERE id = #{id} 
+		LIMIT 1 
+  	</select>
+  	
+  	<select id="getAll" resultType="HomeBanner">
+  		SELECT * FROM  ${tableName} 
+  	</select>
+	
+	<delete id="delete">
+		DELETE FROM ${tableName}
+		WHERE id = #{id} 
+	</delete>
+	
+	<update id="update">
+		update ${tableName}
+		set update_time = now(),
+			update_user = #{updateUser}
+		 <if test="name != null and name != ''">
+		 	,name=#{name}
+		 </if>
+		 <if test="imgAlt != null">
+		 	,img_alt=#{imgAlt}
+		 </if>
+		 <if test="imgUrl != null and imgUrl != ''">
+		 	,img_url=#{imgUrl}
+		 </if>
+		 <if test="imgPath != null and imgPath != ''">
+		 	,img_path=#{imgPath}
+		 </if>
+		 <if test="sortNumber != null and sortNumber != ''">
+		 	,sort_number=#{sortNumber}
+		 </if>
+		  <if test="enabled != null and enabled != ''">
+		 	,enabled=#{enabled}
+		 </if>
+		where id = #{id}
+	</update>
+	
+	<!-- 把sortNumber后的数据排位后移 -->
+	<update id="updateSortNumber">
+		update ${tableName} set sort_number = sort_number +1
+		where sort_number > #{sortNumber}
+	</update>
+	
+	<!-- 找出sortNumber后的数据 -->
+	<select id="getBySortNumber" resultType="HomeBanner">
+		select * from ${tableName} 
+		where sort_number >= #{sortNumber}
+		order by sort_number
+	</select>
+	
+	<!-- 批量更新sortNumber -->
+	<update id="updateBatchSortNumber" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index" separator=";">
+			UPDATE ${tableName} 
+			<set>
+				sort_number = #{item.sortNumber}
+			</set>
+  			WHERE id = #{item.id}
+		</foreach>
+	</update>
+	
+	<insert id="save" parameterType="HomeBanner" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO ${tableName} 
+		(
+		 name,
+		 img_alt, 
+		 img_url, 
+		 img_path,
+		 sort_number,
+		 enabled, 
+		 create_time,
+		 create_user
+		) 
+		VALUES (
+			#{name},
+			#{imgAlt}, 
+			#{imgUrl}, 
+			#{imgPath},
+			#{sortNumber},
+			#{enabled}, 
+			now(),
+			#{createUser}
+		)
+	</insert>
+  	
+  	<!-- 通过状态获取广告位数据 -->
+  	<select id="getAllByEnable" resultType="HomeBanner">
+  		SELECT * FROM  ${tableName} 
+  		<if test="enabled != null and enabled > 0">
+  			where enabled = #{enabled}
+  		</if>
+  		order by sort_number
+  	</select>
+  	
+  	<!-- 获取符合条件的广告位分页数据 -->
+  	<select id="getPageByParams" resultType="HomeBanner">
+  		SELECT * FROM  ${tableName} 
+  		<include refid="condition"/>
+  		order by sort_number
+  	</select>
+  	
+  	
+  	<!-- 统计符合条件的广告位分页数据 -->
+  	<select id="countPageByParams" resultType="Integer">
+  		SELECT count(1) FROM  ${tableName} 
+  		<include refid="condition"/>
+  	</select>
+  	
+  	<!-- 条件 -->
+  	<sql id="condition">
+  		<if test="params != null">
+	  	where 1=1
+	  		<if test="params.name != null and params.name !=''">
+	  			and name like #{params.name}
+	  		</if>
+	  		<if test="params.enabled != null and params.enabled > 0">
+	  			and enabled = #{params.enabled}
+	  		</if>
+  		</if>
+  	</sql>
+</mapper>

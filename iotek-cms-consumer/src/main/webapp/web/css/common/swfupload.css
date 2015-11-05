@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+/* 文件上传样式修改 */
+.progressName{
+	line-height: 25px;
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+.progressBarStatus{
+	background:url(../../images/phasetest/rit_icon.png) no-repeat left center;
+	padding-left:20px;	
+}
+.red .progressName{
+	color: #ff8155;
+}
+.red .progressBarStatus{
+	color: #ff8155;
+}
+.green .progressName{
+	color:#04db38;
+}
+.green .progressBarStatus{
+	color:#04db38;
+}
+.blue .progressName{
+	color:#2c88d6;
+}
+.blue .progressBarStatus{
+	color:#2c88d6;
+}

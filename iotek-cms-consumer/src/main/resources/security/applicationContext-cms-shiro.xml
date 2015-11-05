@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-3.2.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.2.xsd "
+	default-lazy-init="true">
+
+	<description>Shiro权限安全配置</description>
+	
+	<!-- Shiro Filter -->
+	<bean id="shiroFilter" name="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<property name="loginUrl" value="/user/login" />
+		<property name="successUrl" value="/index/wecome" />
+		<property name="unauthorizedUrl" value="/user/anon"/>
+		<property name="filters">
+			<map>
+				<description>定义自定义的权限过滤器</description>
+				<entry key="authc" value-ref="authcFilter" />
+				<entry key="logout" value-ref="logoutFilter" />
+			</map>
+		</property>
+		<property name="filterChainDefinitions">
+			<value>
+				/user/login = authc
+				/user/logout = logout
+				/user/goLogin = anon
+				/user/anon = anon
+				/ = anon
+				/remote/** = anon
+				/favicon.ico = anon
+				/web/js/** = anon
+				/web/css/** = anon
+				/web/images/** = anon
+				/validCaptchaAjax/validCaptcha = anon
+				/userAjax/validUserName = anon
+				 /fileupload/uploadFile =anon
+				/captcha/generateCaptcha = anon
+				/systemManage/validAccountPermission = anon
+				/friendlyLinkManage/uploadLinkImage = anon
+				/test/* = anon
+				/test/city = anon
+				
+				/** = user
+			</value>
+		</property>
+	</bean>
+</beans>

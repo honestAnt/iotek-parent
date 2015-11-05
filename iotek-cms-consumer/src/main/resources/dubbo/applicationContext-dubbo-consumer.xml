@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+
+		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<!-- Application name -->
+	<dubbo:application name="dubbo-consumer" />
+	<dubbo:consumer check="false"></dubbo:consumer>    
+	 <dubbo:registry address="zookeeper://192.168.8.51:2181" />
+<!--使用扫描 为了防止空指针特地添加dubbo和spring mvc的扫描-->
+	<dubbo:annotation package="com.iotekclass" />
+	<mvc:annotation-driven />
+
+	<dubbo:reference  id="manageAccountService" interface="com.iotekclass.cms.service.permission.ManageAccountService" version="1.0.0"/>
+	<dubbo:reference  id="manageRoleService" interface="com.iotekclass.cms.service.permission.ManageRoleService" version="1.0.0"/>
+	<dubbo:reference  id="filterService" interface="com.iotekclass.cms.service.filter.FilterService" version="1.0.0"/>
+	<dubbo:reference  id="manageAccountLogService" interface="com.iotekclass.cms.service.permission.ManageAccountLogService" version="1.0.0"/>
+	<dubbo:reference  id="operationResourceService" interface="com.iotekclass.cms.service.permission.OperationResourceService" version="1.0.0"/>
+	<!--<dubbo:reference  id="demoService" interface="com.ll.demo.dubboInterface.service.DemoService" />
+        <dubbo:reference  id="userService" interface="com.ll.demo.dubboInterface.service.UserService" />
+    -->
+</beans>

@@ -1,0 +1,24 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+  	<groupId>com.iotekclass</groupId>
+  	<artifactId>iotek-parent</artifactId>
+  	<version>3.0</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>iotek-cms-model</artifactId>
+  <packaging>jar</packaging>
+  <name>iotek-cms-model</name>
+  <build>
+    <finalName>iotek-cms-model</finalName>
+  </build>
+  
+  <!-- common依赖 -->
+  <dependencies>
+  	<dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>iotek-common</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+</project>

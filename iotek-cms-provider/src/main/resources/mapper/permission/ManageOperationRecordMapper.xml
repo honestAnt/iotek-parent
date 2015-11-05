@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.iotekclass.cms.persist.permission.ManageOperationRecordMapper">
+
+	<cache />
+
+	<!-- 保存 -->
+	<insert id="save" parameterType="ManageOperationRecord"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO ${tableName}
+		(manage_account_id,url,params,type,module,detail,result,create_time)
+		VALUES
+		(#{manageAccountId},#{url},#{params},#{type},#{module},#{detail},#{result},now())
+	</insert>
+	<!--后台操作记录分页查询 -->
+	<select id="getAllByParamsPage" resultMap="operationRecordResult">
+		SELECT
+		B.username as username,
+		A.create_time as create_time,
+		A.detail as detail
+		FROM
+		tb_manage_operation_record A,
+		tb_manage_account B
+		WHERE A.manage_account_id = B.id
+		<if test="params.username != null and params.username != ''">
+			AND B.username LIKE #{params.username}
+		</if>
+		<if test="params.startTime != null and params.startTime != ''">
+			AND A.create_time <![CDATA[>=]]>
+			#{params.startTime}
+		</if>
+		<if test="params.endTime!= null and params.endTime != ''">
+			AND A.create_time <![CDATA[<=]]>
+			#{params.endTime}
+		</if>
+		ORDER BY A.create_time DESC
+	</select>
+
+	<!--查询结果集 -->
+	<resultMap type="ManageOperationRecord" id="operationRecordResult">
+		<result property="username" column="username" />
+		<result property="createTime" column="create_time" />
+		<result property="detail" column="detail" />
+	</resultMap>
+	
+	<select id="getCountByParams" resultType="Integer">
+		SELECT COUNT(*)
+		FROM
+		tb_manage_operation_record A,
+		tb_manage_account B
+		WHERE A.manage_account_id = B.id
+		<if test="params.username != null and params.username != ''">
+			AND B.username LIKE #{params.username}
+		</if>
+		<if test="params.startTime != null and params.startTime != ''">
+			AND A.create_time <![CDATA[>=]]>
+			#{params.startTime}
+		</if>
+		<if test="params.endTime!= null and params.endTime != ''">
+			AND A.create_time <![CDATA[<=]]>
+			#{params.endTime}
+		</if>
+	</select>
+</mapper>

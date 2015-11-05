@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iotekclass.cms.persist.permission.ManageAccountCourseRelMapper">
+
+	<cache />
+
+	<!-- 保存 -->
+	<insert id="save" parameterType="ManageAccountCourseRel" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO ${tableName}
+			(account_id,course_id,sort_number)
+		VALUES
+			(#{accountId},#{courseId},#{sortNumber})	
+	</insert>
+	
+	<!-- 删除 -->
+	<delete id="delete">
+  		DELETE FROM ${tableName}
+  		WHERE id = ${id}
+  	</delete>
+  	
+  	<!-- 通过id获取对象 -->
+	<select id="getById" resultType="ManageAccountCourseRel" >
+		SELECT * FROM ${tableName}
+		WHERE id = #{id}
+  	</select>
+  	
+  	<!-- 通过accountId获取对象 -->
+	<select id="getByAccountId" resultType="ManageAccountCourseRel" >
+		SELECT * FROM ${tableName}
+		WHERE account_id = #{accountId}
+  	</select>
+  	<!--通过用户id删除  -->
+  	<delete id="deleteByAccountId">
+  		DELETE FROM ${tableName}
+  		WHERE account_id = ${accountId}
+  	</delete>
+</mapper>

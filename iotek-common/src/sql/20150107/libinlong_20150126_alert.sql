@@ -1,0 +1,1 @@
+ALTER TABLE tb_goods ADD coaching TEXT;

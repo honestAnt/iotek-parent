@@ -1,0 +1,7 @@
+@charset "utf-8";
+*{ padding: 0; margin: 0;}
+body{ background: #111920 !important; border-top:8px solid #f47c52; overflow-y:hidden;}
+#login{ width: 330px; height: 180px; color:#FFF; font-size:14px; position: absolute; left: 50%; margin-left: -165px; top: 50%; margin-top: -98px;}
+.txt{ width: 156px; height: 24px; line-height: 24px; color: #333; font: 14px "微软雅黑"; padding: 2px; border: solid 1px #d3d3d3; background: #FFF;}
+.btn{ width: 86px; height: 71px; border: none; font-size: 0; cursor: pointer; background: url("../../images/index/login.jpg") center center no-repeat #f47c52;}
+td{vertical-align:middle !important}

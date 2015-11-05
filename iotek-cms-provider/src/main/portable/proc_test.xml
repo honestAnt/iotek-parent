@@ -1,0 +1,14 @@
+<!--?xml version="1.0" encoding="utf-8" ?-->
+<portable-config>
+	
+ <!-- hessian  配置 -->
+ <config-file path="WEB-INF/classes/hessian/hessian_client.properties">
+ 	<replace key="hessian.remote_url">http://portable.testiotekclass.com/remote</replace>
+ </config-file>
+ 
+  <!-- 替换config -->
+ <config-file path="WEB-INF/classes/config.properties">
+ 	<replace key="portal_url">http://portable.testiotekclass.com</replace>
+  </config-file>
+
+</portable-config>

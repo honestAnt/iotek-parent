@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>com.iotekclass</groupId>
+		<artifactId>iotek-parent</artifactId>
+		<version>3.0</version>
+	</parent>
+	<packaging>war</packaging>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>iotek-cms-consumer</artifactId>
+	<name>iotek-cms-consumer</name>
+	<dependencies>
+		<dependency>
+	      <groupId>${project.groupId}</groupId>
+	      <artifactId>iotek-cms-model</artifactId>
+	      <version>${project.version}</version>
+	    </dependency>
+		<dependency>
+	      <groupId>${project.groupId}</groupId>
+	      <artifactId>iotek-common</artifactId>
+	      <version>${project.version}</version>
+	    </dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>iotek-cms-interface</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+	
+	<!-- 配置 -->
+	<profiles>
+		<profile>
+			<id>proc-cms</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+				<property>
+					<name>proc-cms</name>
+					<value>proc-cms</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<!-- 参数配置插件 -->
+						<groupId>com.juvenxu.portable-config-maven-plugin</groupId>
+						<artifactId>portable-config-maven-plugin</artifactId>
+						<version>1.1.5</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>replace-package</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<portableConfig>src/main/portable/proc.xml</portableConfig>
+						</configuration>
+					</plugin>
+					<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jar-plugin</artifactId> </plugin> -->
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>proc-cms-test</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+				<property>
+					<name>proc-cms-test</name>
+					<value>proc-cms-test</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<!-- 参数配置插件 -->
+						<groupId>com.juvenxu.portable-config-maven-plugin</groupId>
+						<artifactId>portable-config-maven-plugin</artifactId>
+						<version>1.1.5</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>replace-package</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<portableConfig>src/main/portable/proc_test.xml</portableConfig>
+						</configuration>
+					</plugin>
+					<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jar-plugin</artifactId> </plugin> -->
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	
+    <build>
+    	<finalName>cms-consumer</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <additionalProjectnatures>
+                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+                    </additionalProjectnatures>
+                    <additionalBuildcommands>
+                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+                    </additionalBuildcommands>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <compilerArgument>-Xlint:all</compilerArgument>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <configuration>
+                    <mainClass>org.test.int1.Main</mainClass>
+                </configuration>
+            </plugin>
+            
+            <!-- war打包插件, 设定war包名称不带版本号 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<warName>${project.build.finalName}</warName>
+					<!--过滤掉静态资源-->
+					<warSourceExcludes>**/*.sql</warSourceExcludes>
+					<!-- <packagingExcludes>**/log4jdbc-log4j2-jdbc4-1.15.jar,**/log4jdbc.log4j2.properties,**/rebel.xml</packagingExcludes> -->
+				</configuration>
+			</plugin>
+
+			<!-- tomcat6 端口80 -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat6-maven-plugin</artifactId>
+				<version>${tomcat.version}</version>
+				<configuration>
+					<uriEncoding>UTF-8</uriEncoding>
+					<port>80</port>
+				</configuration>
+			</plugin>
+
+			<!-- tomcat7 端口8080 -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>${tomcat.version}</version>
+				<configuration>
+					<port>8085</port>
+					<uriEncoding>UTF-8</uriEncoding>
+					<path>/${build.finalName}</path>
+				</configuration>
+			</plugin>
+			<!-- jetty 整合 -->
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>8.1.8.v20121106</version>
+				<!-- <version>9.2.2.v20140723</version> -->
+				<!-- <configuration> <webAppConfig> <contextPath>/${project.build.finalName}</contextPath> </webAppConfig> <connectors> 
+					<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector"> <port>9080</port> <maxIdleTime>60000</maxIdleTime> 
+					</connector> <connector implementation="org.eclipse.jetty.server.ssl.SslSocketConnector"> <port>8443</port> <maxIdleTime>60000</maxIdleTime> 
+					<keystore>${project.basedir}/localhost.keystore</keystore> <password>wangxiao</password> <keyPassword>wangxiao</keyPassword> 
+					</connector> </connectors> </configuration> -->
+			</plugin>
+        </plugins>
+    </build>
+</project>

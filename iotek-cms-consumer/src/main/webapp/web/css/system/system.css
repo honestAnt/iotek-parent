@@ -1,0 +1,540 @@
+@charset "utf-8";
+/* CSS Document */
+.create_btn{
+	height:42px;
+	margin-bottom:27px;
+}
+.create_btn .ipt_btn01{
+	width:108px;
+	height:40px;
+	background:#f37c52;
+	border:solid 1px #e66b40;
+	color:#fff;
+	font-size:14px;
+}
+.Exper_Tables{    
+    border-bottom: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+	font-size:14px;
+}
+.Exper_Tables tr th {
+    background: #2f364a;
+    height: 35px;
+    line-height: 35px;
+	color:#fff;
+	font-weight: normal;
+}
+.Exper_Tables tr th.table_footer{
+	background:#f5f5f5;
+}
+
+.Exper_Tables tr td{
+    border-right: 1px solid #e5e5e5;
+    border-top: 1px solid #dcdcdc;
+    color: #a7a7a7;
+	padding:10px;
+	line-height:21px;
+	vertical-align:middle;
+	text-align:center;
+	 
+}
+.Exper_Tables tr td input{
+   color:#f47c52;
+   background:#fafafa;
+}
+.Exper_Tables tr.alt td input{
+	color:#f47c52;
+   background:#f5f5f5;
+}
+.Exper_Tables tr.alt td { background:#f3f3f3;}/* 鼠标上移颜色 */
+.Exper_Tables tr.alt td { background:#f5f5f5;}/* 默认隔行背景颜色 */
+.operation_td{
+	text-align:center;
+}
+.operation_td span{
+	color:#f47c52;
+	margin:0 5px;
+} 
+.Exper_Tables tr.alt td.tfooter{
+	background:#f5f5f5;
+	height:60px;
+	border-top:0px solid #fff;
+}
+.Exper_Tables tr.alt td.tfooter input{
+	float:left;
+	margin-left: 38px;
+}
+.Exper_Tables tr.alt td.tfooter input.sity{
+	margin-top: 10px;
+}
+.Exper_Tables tr.alt td.tfooter input.course_button{
+	margin-left: 10px;
+	color:#fff;
+	font-size:14px;
+	background:#f47c52;
+	border:1px solid #e66b40;
+	width:82px;
+	height:30px;
+}
+.Exper_Tables tr.alt td.tfooter span{
+	font-size:14px;
+	color:#454545;
+	float:left;
+	display:inline-block;
+	margin-left:10px;
+	vertical-align:middle;
+	margin-top: 5px;
+}
+.catsiy{ margin-left: 30px;}
+.dbaig{
+	font-size:14px;
+	padding:20px 20px;
+	width:350px;
+    height: 40px;
+   line-height: 40px;
+}
+.dbaig span{
+	color:#f47c52;
+	
+}
+.m-page{
+	float:right;
+	width:400px;
+}
+
+
+/*重置密码*/
+.dash_check ul li{
+	height:30px;
+	line-height:30px;
+	margin-bottom:15px;
+	overflow:hidden;
+}
+.dash_check ul li .dash_check_02{
+	font-size:14px;
+	color:#646464;
+	display:inline-block;
+	width:85px;
+	text-align:left;
+	 background:url(../../images/sales/check_01.png) no-repeat left 10px;
+	 padding-left:15px;
+}
+.dash_check ul li span input{
+	border: 1px solid #d3d3d3;
+    height: 28px;
+	line-height:28px;
+	margin:0;
+	padding:0;
+}
+.dash_sure{
+	padding-left:100px;
+	padding-top:25px;
+}
+.dash_sure .input_btn{
+	width:100px;
+	height:40px;
+	color:#fff;
+	background:#f47c52;
+	font-size:14px;
+}
+.dash_check_03{width:335px; height:28px; border:1px solid #d3d3d3;}
+.dash_check_05{ width:210px; height:28px; border:1px solid #d3d3d3;}
+.dash_check_06{margin-left:26px;}
+.dash_check_07{margin-left:42px;}
+.dash_check_08{margin-left:72px;}
+
+/**商品名称**/
+.homework_main{
+	margin-top:20px;
+}
+.mywork_title{
+	line-height: 53px;
+	height: 53px;
+	background:#f5f5f5;
+	border-bottom:1px solid #dcdcdc;
+}
+
+.mywork_title ul li {
+    float: left;
+    text-align: center;
+    width: 110px;
+	cursor:pointer;
+	font-size:14px;
+	
+}
+.mywork_title ul li .sp_state{
+    color: #ff8155;
+}
+.homework_main .hovertab_mywork {
+    background: none repeat scroll 0 0 #FFF;
+    border-right: 1px solid #dcdcdc;
+    border-left: 1px solid #dcdcdc;
+    border-top: 3px solid #f47c52;
+    color: #f47c52;
+    height: 51px;
+	font-size:14px;
+}
+.homework_main .nor_mywork {
+    border-right: 1px solid #fafafa;
+    color: #747474;
+}
+.homework_main .all_letter_con{
+	display:block;
+}
+.homework_main .unall_letter_net{
+	display: none;
+}
+.homewk_content{
+	padding:30px 10px 30px 54px;
+	border-bottom:solid 1px #dcdcdc;
+}
+.label_ul li{
+	height:25px;
+	line-height:25px;
+	margin-bottom:20px;
+}
+.label_ul li .label_li{width: 200px;  float: left; font-size:14px; color:#646464; display: block;}
+.label_ul li .label_li input{
+	margin-right:8px;
+}
+/**账号表格**/
+.homework_main_1{
+	margin-top:20px;
+	margin-left:116px;
+}
+.mywork_title_1{
+	line-height: 53px;
+	height: 53px;
+	background:#f5f5f5;
+	border-bottom:1px solid #dcdcdc;
+	width:404px;
+}
+
+.mywork_title_1 ul li {
+    float: left;
+    text-align: center;
+    width: 200px;
+	cursor:pointer;
+	font-size:14px;
+	
+}
+.mywork_title_1 ul li .sp_state{
+    color: #ff8155;
+}
+.homework_main_1 .hovertab_mywork {
+    background: none repeat scroll 0 0 #FFF;
+    border-right: 1px solid #dcdcdc;
+    border-left: 1px solid #dcdcdc;
+    border-top: 3px solid #f47c52;
+    color: #f47c52;
+    height: 51px;
+	font-size:14px;
+}
+.homework_main_1 .nor_mywork {
+    border-right: 1px solid #fafafa;
+    color: #747474;
+}
+.homework_main_1 .all_letter_con{
+	display:block;
+}
+.homework_main_1 .unall_letter_net{
+	display: none;
+}
+.homewk_content_1{
+	padding:30px 10px 30px 0px;
+	border-bottom:solid 1px #dcdcdc;
+}
+.select_couse{
+	padding-left:10PX;
+	padding-top:20PX;
+	padding-bottom:20PX;
+	border-bottom:1PX solid #dcdcdc;
+}
+.select_couse h3{
+	font-size:14px;
+	font-weight:normal;
+	color:#191919;
+	margin-bottom:15px;
+}
+.select_couse ul li{
+    float:left;
+	margin-right:40px;
+	font-size:14px;
+}
+.course_data {
+	padding-left:10PX;
+	padding-top:20px;
+	padding-bottom:20PX;
+	
+}
+.course_data span{
+	background:url(../../images/user/check_01.png) no-repeat left center;
+	padding-left:20px;
+	width:60px;
+	display:line-block;
+	margin-right:10px;
+}
+.course_data input{
+	width:80px;
+	border:1px solid #d3d3d3;
+	height:30px;
+}
+.course_sure{
+	padding-left:280px;
+}
+.course_sure input{
+	width:100px;
+	height:40px;
+	background:#f47c52;
+	border:1px solid #e66b40;
+	color:#fff;
+	font-size:14px;
+}
+
+/*体验卡列表*/
+.exper_date{  margin-bottom:20px;}
+.exper_date_01{ font-size:14px; color:#646464; margin-right:15px;}
+.exper_date_01 input{
+	width:70px;
+	height:30px;
+	background:#f47c52;
+	border:1px solid #e66b40;
+	color:#fff;
+	font-size:14px;
+}
+.exper_date_02{ height:28px; width:160px; border:1px solid #d3d3d3; margin-right:35px;}
+.exper_date_03{ width:130px; text-align:center; color:#646464; font-size:14px; border:1px solid #d3d3d3; height:28px;}
+.exper_date_04{ height:28px; width:157px; border:1px solid #d3d3d3; margin-right:43px;}
+.exper_button{margin-bottom:80px;}
+.exper_button_01{ width:104px; background:#f47c52; border:1px solid #e66b40; height:40px; color:#ffffff;}
+.exper_button_02{width:108px; background:#f47c52; border:1px solid #e66b40; height:40px; color:#ffffff;}
+.exper_button_03{ margin-right:12px;}
+.exper_page{ padding:45px 0; text-align:right;}
+.exper_page a{ padding:10px 10px; background:#f5f5f5; font-size:14px; color:#454545; text-decoration: none;}
+.exper_page a:hover{padding: 10px 10px; color: #fff; background:#f47c52; text-decoration: none;}
+
+
+/*体验卡个人列表*/
+.person_data{ float:right;}
+.person_data_01{ width:68px; height:30px; border:1px solid #e66b40; background:#f47c52; color:#ffffff;}
+.exper_date input.seach{ width:68px; height:30px; background:#f47c52; border:1px solid #e66b40; color:#fff; font-size:14px;}
+.person_data_02{ margin-right:65px;}
+.person_list_button{ margin-bottom:12px;}
+.person_list_button_01{ margin-right:10px;}
+.person_list_button_02{ width:102px; height:40px; border:1px solid #e66b40; background:#f47c52; color:#ffffff;}
+.operation_td a{ text-decoration:none; margin-left:20px;}
+
+/*批量创建渠道用户表*/
+.check ul li{ margin-bottom:20px;}
+.check ul li span{
+   font-size:14px;
+   width:130px;
+   	display:inline-block;
+	height:21px;
+	line-height:21px;
+ }
+ .check ul li span.check_dash_01{
+ 	 background: url("../../images/sales/check_01.png") no-repeat scroll left 10px rgba(0, 0, 0, 0);
+    color: #646464;
+    display: inline-block;
+    font-size: 14px;
+    padding-left: 15px;
+    text-align: left;
+    width: 100px;
+ }
+  .check ul li span.check_dash_02{
+    color: #646464;
+    display: inline-block;
+    font-size: 14px;
+    padding-left: 15px;
+    text-align: left;
+    width: 100px;
+ }
+ .check_dash{
+ padding-left: 130px;
+ }
+ .check_dash dl dt{
+ 	font-size:14px;
+	height:21px;
+	line-height:21px;
+	margin-bottom:15px;
+ }
+ .check_dash dl dd{
+ 	font-size:14px;
+	height:21px;
+	margin-bottom:10px;
+ }
+ .check_dash_1{
+	width:150px;
+	height:25px;
+	border:1px solid #d3d3d3;
+}
+ .check_dash_1_1{
+	width:220px;
+	height:25px;
+	border:1px solid #d3d3d3;
+}
+ .check_dash_1_2{
+	width:145px;
+	height:25px;
+	border:1px solid #d3d3d3;
+}
+.zh{ color:#b5b5b5;}
+.check_dash_1_3{
+	width:70px;
+	height:30px;
+	color:#fff;
+	background:#f47c52;
+	font-size:14px;
+	border:1px solid #e66b41;
+	margin-left:5px;
+}
+.check_dash_1_4{
+	width:120px;
+	height:30px;
+	color:#fff;
+	background:#f47c52;
+	font-size:14px;
+	border:1px solid #e66b41;
+}
+.check_dash_2{
+	font-style:normal;
+	margin-right:20px;
+}
+.check_sure{
+	 padding-left: 130px;
+     padding-top: 25px;
+}
+.check_sure .input_btn{
+	width:100px;
+	height:40px;
+	color:#fff;
+	background:#f47c52;
+	font-size:14px;
+	border:1px solid #e66b41;
+}
+/*批量创建渠道用户表*/
+.dtae{
+	margin-bottom:20px;
+}
+.dtae dt{
+	font-size:14px;
+	background:#facbb9;
+	border-left:5px solid #f37c52;
+	height:45px;
+	line-height:45px;
+	color:#fff;
+	padding-left:35px;
+}
+.dtae dd span{
+	width:140px;
+	height:50px;
+	background:#ededed;
+	text-align:center;
+	font-size:14px;
+	display:inline-block;
+	line-height:50px;
+	margin-right:35px;
+}
+.xi{
+	background:url(../../images/user/check_01.png) no-repeat;
+	padding-left: 10px;
+	vertical-align:-3px;
+}
+.dtae dd input{
+	border:1px solid #656565;
+	width:290px;
+	height:30px;
+}
+.dtae dd input.new_sky{
+	border:1px solid #fff;
+	width:0px;
+	height:0px;
+}
+.sle_address{
+	border:1px solid #656565;
+	width:100px;
+	height:30px;
+	margin-right:40px;
+	text-align:center;
+}
+.sele_adress{
+    border:1px solid #656565;
+	width:140px;
+	height:30px;
+	margin-right:40px;
+	text-align:center;
+}
+.check_uesr_qe{
+	text-align:center;
+}
+.check_uesr_qe input{
+	width:100px;
+	height:40px;
+	line-height:40px;
+	color:#fff;
+	font-size:14px;
+}
+.check_uesr_qe .check_uesr_btn{
+	border:1px solid #e66b41;
+	background:#f37c52;
+}
+.check_uesr_qe .check_uesr_atn{
+	border:1px solid #0e1937;
+	background:#2f3649;
+}
+/*用户信息编辑*/
+.user_ifo{
+	margin-bottom:30px;
+	height:330px;
+}
+.user_ifo h3{
+		font-size:14px;
+	background:#facbb9;
+	border-left:5px solid #f37c52;
+	height:45px;
+	line-height:45px;
+	color:#fff;
+	padding-left:35px;
+	font-weight:normal;
+}
+.user_ifo ul{
+	float:left;
+	
+}
+.user_ifo ul.img_use{
+	margin-left:175px;
+	padding-top:40px;
+}
+.user_ifo ul li.keyord{
+	text-align:center;
+	font-size:14px;
+}
+.user_ifo ul li span{
+	width:140px;
+	height:50px;
+	background:#ededed;
+	text-align:center;
+	font-size:14px;
+	display:inline-block;
+	line-height:50px;
+	margin-right:35px;
+}
+.user_ifo ul li input{
+	border:1px solid #656565;
+	width:290px;
+	height:30px;
+	
+}
+.user_ifo ul li input.new_sky{
+	border:1px solid #fff;
+	width:0px;
+	height:0px;
+}
+
+.prompt_main .li_btn {
+    height: 42px;
+    line-height: 42px;
+    padding-left: 0;
+    text-align: center;
+}

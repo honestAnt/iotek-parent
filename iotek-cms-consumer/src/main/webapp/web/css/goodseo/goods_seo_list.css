@@ -1,0 +1,248 @@
+@charset "utf-8";
+/* CSS Document */
+
+.check_sure {
+    padding-top: 20px;
+    text-align:right;
+    margin-bottom:30px;
+}
+
+.Exper_Tables {
+    border-bottom: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+    font-size: 14px;
+}
+
+.Exper_Tables tr th {
+    background: none repeat scroll 0 0 #2f364a;
+    color: #fff;
+    font-weight: normal;
+    height: 35px;
+    line-height: 35px;
+}
+
+.Exper_Tables tr td {
+    border-right: 1px solid #e5e5e5;
+    border-top: 1px solid #dcdcdc;
+    color: #a7a7a7;
+    line-height: 21px;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.Exper_Tables tr.alt td {
+    background: none repeat scroll 0 0 #f5f5f5;
+}
+
+.operation_td a {
+    margin-left: 30px;
+    text-decoration: none;
+    margin-right:30px;
+}
+
+.check_sure .input_btn {
+    background: none repeat scroll 0 0 #f47c52;
+    border: 1px solid #e66b41;
+    color: #fff;
+    font-size: 14px;
+    height: 40px;
+    width: 100px;
+}
+
+.dash_check ul li {
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.dash_check_02 {
+    font-style:normal;
+     margin-right: 10px;
+     color:red;
+}
+.dash_check ul li{
+    font-size:14px;
+}
+
+.dash_check ul li span input {
+    border: 1px solid #d3d3d3;
+    height: 24px;
+    line-height: 28px;
+    margin: 0;
+    padding: 0;
+    margin-left: 46px;
+}
+.dash_check ul li span select {
+    border: 1px solid #d3d3d3;
+    height: 24px;
+    line-height: 28px;
+    margin-left: 60px;
+}
+.dash_check_05 {
+    border: 1px solid #d3d3d3;
+    height: 28px;
+    width: 210px;
+}
+.dash_check_03 {
+    border: 1px solid #d3d3d3;
+    height: 28px;
+    width: 100px;
+}
+
+.outl_header a {
+    color: #646464;
+    text-decoration: none;
+}
+.outl_header a:hover{
+    text-decoration:none;
+    color:#646464;
+}
+.outl_header1{
+    width:100px;
+    height:21px;
+    font-size:14px;
+}
+.outl_header2{
+    font-size:14px;
+	 margin-bottom: 20px;
+}
+.outl_header{
+    font-size:14px;
+    margin-bottom: 20px;
+}
+.outl_header span{
+    display:inline-block;
+    margin-right:30px;
+}
+.outlinemenu ul {
+     padding-left: 130px;
+}
+.outlinemenu ul li label{
+    margin-bottom: 20px;
+    display:inline-block;
+    font-size:14px;
+}
+.dash_sure{
+    text-align:center;
+    margin-top: 20px;
+}
+.dash_sure .input_btn {
+    background: none repeat scroll 0 0 #f47c52;
+    color: #fff;
+    font-size: 14px;
+    height: 40px;
+    width: 100px;
+}
+
+
+
+
+/*商品分类*/
+.date_tab{ padding: 0 20px; height: auto; overflow: hidden; font-size: 14px;} 
+.bj_lists{ height: 55px; background: url("../../images/goods_list/line.jpg") left bottom repeat-x #ededed;} 
+.bj_lists ul li{ width: 138px; height: 55px; line-height: 55px; float: left; text-align: center;}
+.bj_lists ul li a{ display: block; outline: none; color: #646464;}
+.bj_lists ul li a.hover{ background: url("../../images/goods_list/bg1.jpg") left center no-repeat; color: #f47c52;} 
+
+.btn_1{ height: 30px; padding: 0 15px; border:none; background: #ff8156; font-size: 14px; color: #FFF;}
+
+.class_tab{ height: auto; overflow: hidden; padding: 20px 0;}
+.c_tab tr td,.c_tab tr th{ vertical-align: middle; text-align: left;} 
+.c_tab tr th{ padding-left: 25px;}
+.c_tab tr.class_2 td:nth-child(1){ padding-left: 16px;}
+
+.class3{ border-top: solid 1px #e8e8e8; border-left: solid 1px #e8e8e8; }
+.class3 tr td, .class3 tr th{ border-bottom: solid 1px #e8e8e8; border-right: solid 1px #e8e8e8; }
+.class3 tr th{ text-align: center;}
+.class3 tr td{ padding: 0 10px;}
+.class3 tr:nth-child(odd) td{ background: #f5f5f5;}
+
+
+/*弹窗*/
+.popup{ font-size: 14px; width: 100%; height: 100%; position: fixed; top: 0; left: 0; background: rgba(0,0,0,.3); display: none;}
+.popup_box{ width: 364px; height: 260px; background: #FFF; position: absolute; left:50%; margin-left: -182px; top: 50%; margin-top: -130px;}
+.popup_box1{ width: 364px; height: 166px; background: #FFF; position: absolute; left:50%; margin-left: -182px; top: 50%; margin-top: -83px;} /*分类一*/
+.popup_box2{ width: 364px; height: 210px; background: #FFF; position: absolute; left:50%; margin-left: -182px; top: 50%; margin-top: -105px;} /*分类二*/
+
+.pop_title{ height: 44px; background: #f47c52; padding: 0 20px; line-height: 44px; color: #FFF;}
+#close{ cursor: pointer;}
+.pop_con{ height: 200px; padding: 15px 22px 0 22px;}
+.pop_con1{ height: 135px; border-bottom: 1px solid #ccc;}
+.pop_con1 h3{ font-size: 14px; font-weight: bold;}
+.jindu_bg{ width: 188px; height: 11px; border:1px solid #d3d4d6; background: #e6e7e9; border-radius: 5px; display: inline-block;}
+.jindu{ background: #f37c52; height: 11px; line-height: 11px; font-size: 10px; color: #FFF; border-radius: 5px; text-align: center;} 
+
+.pop_con2{ padding-top: 20px;}
+.jd{ width: 52px; height: 10px; border:1px solid #d3d4d6; background: #e6e7e9; display: inline-block; _display:inline; _zoom:1; border-radius: 5px;}
+.jd2{ background: #f37c52; border-color: #f37c52;}
+
+.pop_txt{ width: 152px; padding: 2px 3px; height: 24px; line-height: 24px; border: 1px solid #abadb3; color: #646464; }
+.time_txt{ width: 120px; padding: 2px 3px; height: 24px; line-height: 24px; border: 1px solid #abadb3; color: #646464; }
+.s_txt{ width: 200px; padding: 0 3px; height: 28px; border: 1px solid #abadb3; color: #646464; }
+.s_select{ width: 126px; height: 28px; color: #646464;}
+
+.asktion_05{ width: 160px; height: 28px; color: #646464;} 
+
+.good_search{ padding-bottom: 12px; height: auto; overflow: hidden;}
+.g_tab{ border-left: solid 1px #e8e8e8; border-bottom: solid 1px #e8e8e8; border-collapse:collapse;}
+.g_tab tr td{ height: 40px; line-height: 40px; padding: 0 5px; border-right: solid 1px #e8e8e8; empty-cells: show; vertical-align: middle; text-align: center !important;}
+.g_tab tr th{ background: #2f364a; font-weight: normal; color:#FFF; height: 35px; line-height: 35px; text-align: center;}
+.g_tab tr td p{ line-height: 24px; }
+.g_tab tr:nth-child(odd) td{ background: #f5f5f5;}
+
+.color1{ color: #f47c52}
+em{ font-style: normal;}
+
+.add_btn{ height: 30px; line-height: 30px; display: block; width: 60px; padding: 0 15px; border:none; background: #ff8156; font-size: 14px; color: #FFF;}
+
+/*添加商品*/ 
+.good_add_tab tr th{ height: 32px; line-height: 32px; text-align: left; font-weight: normal; padding-left: 22px; color: #fff; background: #2f364a;}
+.good_edit_tab{ margin: 20px 0 40px 0;}
+.good_edit_tab tr td{ vertical-align: top; line-height: 32px;}
+.cl_lists{ padding-bottom: 20px;}
+.cl_lists label{ width: 200px; height: 32px; line-height: 32px; display: block; float: left;overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;}
+
+.g_class{ height: 38px; background: url("../../images/goods_list/line.jpg") left bottom repeat-x;}
+.g_class ul li{ width: 105px; height: 38px; text-align: center; line-height: 38px; float: left;}
+.g_class ul li a{ color: #898989; display: block; outline: none;}
+.g_class ul li a:hover{ color: #f47c52;}
+.g_class ul li a.cur{ background: url("../../images/goods_list/bg2.jpg") left top no-repeat;}
+
+.g_lists{ border: solid 1px #d3d3d3; border-top: none; height: auto; overflow: hidden; padding: 35px 22px;}
+.class_check{ border: solid 1px #d3d3d3; padding: 16px 25px; height: auto; overflow: hidden;}
+.class_check ul li{ float: left; padding-right:25px; }
+.g_txt{ float: left; width: 340px; padding: 2px 4px; height: 24px; line-height: 24px; border: solid 1px #d3d3d3; color: #646464; font-size: 12px;}
+.g_area{ float: left; width: 340px; padding: 2px 4px; height: 110px; line-height: 24px; border: solid 1px #d3d3d3; color: #646464; font-size: 12px;}
+.xz_txt{ float: left; width: 155px; padding:2px 4px; height: 24px; line-height: 24px; border: 1px solid #d3d3d3; color: #646464; }
+.error{ float: left; margin-left: 10px; height: 28px; line-height: 28px; width: 120px; font-size: 12px; color: #ff8155; text-align: center; border: solid 1px #f7d0d4; background: #fbf0f1; }
+
+.zx_line{ width: 20px; text-align: center; color: #d3d3d3; display: block;}
+
+.g_select{ width: 350px; height: 28px; color: #646464; border: solid 1px #d3d3d3;}
+.btn_upload{ height: 30px; font-size: 14px; border: solid 1px #f47c52 !important; background: #f47c52; cursor: pointer; color: #fff;}
+.color2{ color: #c5c5c5;}
+.g_dw{ width: 30px; text-align: center; display: block; float: left;}
+ 
+.youshi dl{ float: left; width: 120px; padding-right: 60px; height: 120px;}
+.youshi dl dt{ text-align: center;}
+.youshi dl dd{ text-align: center;}
+
+.tarea{ width:99%; height: 328px; border: solid 1px #d3d3d3;}
+
+.add_btn_1{ width: 100px; margin: 7px; height: 40px; font-size: 14px; color: #fff; border: solid 1px #e66b40 !important; background: #f47c52; display: inline-block; _display:inline; _zoom:1;}
+.btn_yl { width: 100px; margin: 7px; height: 40px; font-size: 14px; color: #fff; border: solid 1px #378bb3 !important; background: #69a5c2; display: inline-block; _display:inline; _zoom:1; }
+.btn_back { width: 100px; margin: 7px; height: 40px; font-size: 14px; color: #fff; border: solid 1px #545454 !important; background: #676767; display: inline-block; _display:inline; _zoom:1; }
+.btn_wsj{ width: 100px; margin: 7px; height: 40px; font-size: 14px; color: #fff; border: solid 1px #a99884 !important; background: #c0b0a0; display: inline-block; _display:inline; _zoom:1;}
+.t1,.t2{ line-height: 35px;}
+.t1{ display: block;}
+.t2{  padding-left: 20px;}
+.swfupload_1{
+	width:130px;
+	height:40px;
+	 background: url("../../images/question/s1_04.jpg") no-repeat!important;
+
+}

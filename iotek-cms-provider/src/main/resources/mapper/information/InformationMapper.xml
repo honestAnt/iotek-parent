@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iotekclass.cms.persist.information.InformationMapper">
+
+  	<!-- 保存 -->
+	<insert id="saveInformation" parameterType="Information" >
+		INSERT INTO ${tableName}
+			(first_level_id,second_level_id,title,keywords,description,delivery_time,source,featured,content,status,create_time,create_user)
+		VALUES
+			(#{information.firstLevelId},#{information.secondLevelId},#{information.title},#{information.keywords},#{information.description}
+			,#{information.deliveryTime},#{information.source},#{information.featured},#{information.content},#{information.status}
+			,now(),#{information.createUser})	
+	</insert>
+	
+	<update id="update" parameterType="Information">
+		update ${tableName} set 
+			update_time = now(),
+			update_user = #{updateUser} 
+			<if test="firstLevelId != null and firstLevelId >0">
+				,first_level_id = #{firstLevelId}
+			</if>
+			<if test="secondLevelId != null and secondLevelId >0">
+				,second_level_id = #{secondLevelId}
+			</if>
+			<if test="title != null and title != ''">
+				,title = #{title}
+			</if>
+			<if test="keywords != null and keywords != ''">
+				,keywords = #{keywords}
+			</if>
+			<if test="description != null and description != ''">
+				,description = #{description}
+			</if>
+			<if test="deliveryTime != null and deliveryTime != ''">
+				,delivery_time = #{deliveryTime}
+			</if>
+				,source = #{source}
+			<if test="featured != null and featured >0">
+				,featured = #{featured}
+			</if>
+			<if test="content != null and content != ''">
+				,content = #{content}
+			</if>
+			<if test="status != null and status >=0">
+				,status = #{status}
+			</if>
+			where id=#{id}
+	</update>
+	
+	<update id="updateByStatus">
+		update ${tableName} set
+			update_time = now()
+			,update_user = #{userId}
+			,status = #{status}
+			<if test="returnReason != null and returnReason != ''">
+				,return_reason = #{returnReason}
+			</if>
+			where id=#{id}
+	</update>
+	
+	<select id="informationSearch" resultMap="InformationMap">
+  		SELECT a.id as aid,a.title atitle,b.sort_name firstLevelName,c.sort_name secondLevelName,
+  		a.delivery_time deliveryTime,a.status status,a.return_reason returnReason
+  		<include refid="innerTables"/>
+  		<include refid="condition"/>
+  	</select>
+  	
+  	<resultMap type="Information" id="InformationMap">
+  		<result property="id" column="aid"/>
+  		<result property="firstLevelName" column="firstLevelName"/>
+		<result property="secondLevelName" column="secondLevelName"/>
+		<result property="title" column="atitle"/>
+		<result property="status" column="status"/>
+		<result property="deliveryTime" column="deliveryTime"/>
+		<result property="returnReason" column="returnReason"/>
+	</resultMap>
+  	
+  	<select id="getInformationListCount" resultType="Integer">
+  		SELECT count(1) 
+		<include refid="innerTables"/>
+  		<include refid="condition"/>
+  	</select>
+  	
+  	<sql id="innerTables">
+  		FROM ${tableName} a join tb_information_sort b on a.first_level_id =b.id LEFT JOIN tb_information_sort c
+			on a.second_level_id =c.id 
+  	</sql>
+  	
+  	<!-- 分页查询条件 -->
+  	<sql id="condition">
+  		where 1=1
+  		<if test="firstLevelId >0">
+  			and a.first_level_id = #{firstLevelId} 
+  		</if>
+		<if test="secondLevelId >0">
+  			and a.second_level_id = #{secondLevelId}
+  		</if>
+  		<if test="title !=null and title != ''">
+  			and title like CONCAT(CONCAT('%', #{title}),'%')
+  		</if>
+  		<if test="status >= 0">
+  			and a.status = #{status} 
+  		</if>
+  		<if test="beginTime !=null and beginTime != ''">
+  			and a.delivery_time<![CDATA[>=]]>str_to_date(#{beginTime},'%Y-%m-%d')
+  		</if>
+  		<if test="endTime !=null and endTime != ''">
+  			and a.delivery_time<![CDATA[<=]]>str_to_date(#{endTime},'%Y-%m-%d')
+  		</if>
+  		order by a.delivery_time desc;
+  	</sql>
+  	
+  	<delete id="delete">
+  		delete from ${tableName} where id=#{id}
+  	</delete>
+	<!-- 获取最新发布的前两条资讯 -->
+	<select id="getFirstInfo" resultType="Information">
+		SELECT * FROM ${tableName} 
+		WHERE status =#{status} AND featured = #{featured}  
+		ORDER BY delivery_time DESC 
+		LIMIT #{number}
+	</select>
+	
+	<select id="getById" resultMap="informationIdMap">
+		select * from ${tableName} where id=#{id}
+	</select>
+	<resultMap type="Information" id="informationIdMap">
+		<result property="firstLevelId" column="first_level_id"/>
+		<result property="secondLevelId" column="second_level_id"/>
+		<result property="deliveryTime" column="delivery_time"/>
+	</resultMap>
+	
+	<select id="informationBySort" resultType="Information">
+  		 SELECT * from ${tableName} where 1=1
+  		<if test="firstLevelId !=null and firstLevelId >0">
+  			and first_level_id = #{firstLevelId} 
+  		</if>
+		<if test="secondLevelId!=null and secondLevelId >=0">
+  			and second_level_id = #{secondLevelId}
+  		</if>
+  		<if test="status!=null and status >= 0">
+  			and status = #{status} 
+  		</if>
+  		order by delivery_time desc
+  	</select>
+	
+	
+</mapper>

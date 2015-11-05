@@ -1,0 +1,1 @@
+ALTER TABLE tb_manage_operation_record MODIFY COLUMN params TEXT;

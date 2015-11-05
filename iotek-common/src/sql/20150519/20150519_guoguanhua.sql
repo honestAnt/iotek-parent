@@ -1,0 +1,1 @@
+update tb_manage_resource set url = CONCAT(url,',/teacherManage/searchTotalStudy') where id= 125;

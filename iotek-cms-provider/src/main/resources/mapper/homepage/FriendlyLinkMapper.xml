@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.iotekclass.cms.persist.homepage.FriendlyLinkMapper">
+
+	<select id="getById" resultType="FriendlyLink" >
+		SELECT * FROM ${tableName}
+		WHERE id = #{id}
+  	</select>
+  	
+  	<select id="getAll" resultType="FriendlyLink" >
+		SELECT * FROM ${tableName}
+  	</select>
+  	
+  	<update id="update" parameterType="FriendlyLink">
+		UPDATE ${tableName}
+		SET update_time = now()
+		,title = #{title}
+		,file_path = #{filePath}
+		<if test="name != null and name != ''">
+			,name = #{name}
+		</if>
+		<if test="type != null and type != ''">
+			,type = #{type}
+		</if>
+		<if test="url != null and url != ''">
+			,url = #{url}
+		</if>
+		<if test="openWay != null and openWay != ''">
+			,open_way = #{openWay}
+		</if>
+		<if test="updateUser != null and updateUser != ''">
+			,update_user = #{updateUser}
+		</if>
+		WHERE id= #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM ${tableName}
+		WHERE id= #{id}
+	</update>
+	
+	<insert id="save" parameterType="FriendlyLink" useGeneratedKeys="true" keyProperty="id">
+  		INSERT INTO ${tableName}
+		(name,type,url,open_way,title,file_path,create_user,create_time)
+  		VALUES
+  		(#{name},#{type},#{url},#{openWay},#{title},#{filePath},#{createUser},now())
+	</insert>
+  	
+  	<!-- 按条件获取友情链接信息 -->
+  	<select id="getByParams" resultType="FriendlyLink">
+  		SELECT * FROM ${params.tableName}
+  		<include refid="codition"></include>
+  		ORDER BY create_time DESC
+  	</select>
+  	<!-- 按条件获取友情链接数量 -->
+  	<select id="getCountByParams" resultType="Integer">
+  		SELECT COUNT(*) FROM ${params.tableName}
+  		<include refid="codition"></include>
+  	</select>
+  	<sql id="codition">
+  		WHERE 1=1
+  		<if test="params.name != null and params.name != ''">
+  			AND name like #{params.name}
+  		</if>
+  		<if test="params.type != 0 ">
+  			AND type = #{params.type}
+  		</if>
+  	</sql>
+  	<!-- 通过名称获取链接信息 -->
+  	<select id="getByName" resultType="FriendlyLink">
+  		SELECT * FROM ${tableName}
+  		WHERE name = #{name}
+  		LIMIT 1
+  	</select>
+</mapper>
