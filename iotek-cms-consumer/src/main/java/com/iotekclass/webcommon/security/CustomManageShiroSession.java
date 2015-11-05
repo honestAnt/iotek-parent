@@ -66,15 +66,15 @@ public class CustomManageShiroSession {
 	 */
 	private static final String system_label = "_cms";
 
-	@Reference(version = "1.0.0")
+	@Autowired
 	private ManageAccountService manageAccountService;
-	@Reference(version = "1.0.0")
+	@Autowired
 	private ManageRoleService manageRoleService;
 
-	@Reference(version = "1.0.0")
+	@Autowired
 	private FilterService filterService;
 
-	@Reference(version = "1.0.0")
+	@Autowired
 	private ManageAccountLogService manageAccountLogService;
 	
 	/**
