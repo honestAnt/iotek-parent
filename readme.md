@@ -11,3 +11,4 @@
   	3.引入数据库重构。[暂缓]
   		1.加入sql系统脚本和测试脚本到src/main/resources目录下。
   		2.通过ant任务插件生成数据库、数据表和初始数据。
+  2.项目架构使用springmvc+dubbo。
